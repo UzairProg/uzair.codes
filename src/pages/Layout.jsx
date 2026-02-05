@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Loader from '../components/Loader/Loader.jsx'
+import { AnimatePresence } from 'framer-motion'
+import Navbar from '../components/Navbar/Navbar.jsx'
 
 const Layout = ({children}) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -10,8 +12,15 @@ const Layout = ({children}) => {
 
   return (
     <>
+    <AnimatePresence>
       {isLoading && <Loader onFinish={() => setIsLoading(false)} />}
-      {!isLoading && children}
+    </AnimatePresence>
+      {!isLoading && <>
+          <main className=''>
+            {children}
+          </main>
+          <Navbar />
+        </>}
     </>
   )
 }

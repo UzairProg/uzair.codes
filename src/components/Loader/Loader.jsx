@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import { motion } from "motion/react"
 const HELLOS = [
   "Hello",
   "Hola",
@@ -13,6 +13,20 @@ const HELLOS = [
 
 const intervalTime = 250
 const timePeriod = HELLOS.length * intervalTime
+
+const loaderVariants = {
+  initial: {
+    y: 0,
+  },
+  exit: {
+    y: "-100%",
+    transition: {
+      duration: 0.8,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+}
+
 
 export default function Loader({ onFinish }) {
   const [index, setIndex] = useState(0)
@@ -34,10 +48,14 @@ export default function Loader({ onFinish }) {
   }, [onFinish])
 
   return (
-    <div className="fixed inset-0 bg-black text-white flex items-center justify-center">
+    <motion.div 
+    variants={loaderVariants}
+    initial="initial"
+    exit="exit"
+    className="fixed inset-0 bg-black text-white flex items-center justify-center z-100">
       <span className="text-6xl md:text-7xl font-bold">
         {HELLOS[index % HELLOS.length]}
       </span> 
-    </div>
+    </motion.div>
   )
 }
