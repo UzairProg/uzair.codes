@@ -9,7 +9,7 @@ const icons = {
 
 const Home = () => {
   return (
-    <div className="h-screen flex justify-center pt-6 md:pt-10 ml-4 mr-4 md:mx-0">
+    <div className="h-screen flex justify-center pt-6 md:pt-10 ml-4 mr-4 md:mx-0 scroll-mt-28" id="home">
       <div className="flex flex-col gap-8">
         {/* Image and Name */}
         <div className="flex  gap-4 justify-start items-center">
