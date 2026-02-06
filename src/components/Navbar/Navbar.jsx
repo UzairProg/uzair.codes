@@ -6,7 +6,7 @@ import useLenisScroll, { getLenis } from "../../hooks/useLenisScroll.js";
 const icons = {
   home: <Compass />,
   projects: <FolderKanban />,
-  experience: <Trophy />,
+  achievements: <Trophy />,
   techStack: <Layers />,
   contact: <Mail />,
 };
@@ -33,6 +33,7 @@ export default function Navbar() {
   useLenisScroll()
   const [activeSection, setActiveSection] = React.useState("home");
   const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+  const manualClickRef = React.useRef(false);
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -46,13 +47,15 @@ export default function Navbar() {
   const sections = [
     "home",
     "projects",
-    "experience",
+    "achievements",
     "about",
     "contact",
   ]
 
   const observer = new IntersectionObserver(
     (entries) => {
+      if (manualClickRef.current) return; // Skip observer if manual click is active
+      
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id)
@@ -61,8 +64,8 @@ export default function Navbar() {
     },
     {
       root: null,
-      rootMargin: "0px",
-      threshold: isMobile ? 0.1 : 0.6,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
     }
   )
 
@@ -88,7 +91,13 @@ export default function Navbar() {
         {Object.entries(icons).map(([label, Icon]) => (
           <button
             key={label}
-            onClick={() => {setActiveSection(label.toLowerCase()); handleScroll(label.toLowerCase())}}
+            onClick={() => {
+              manualClickRef.current = true;
+              setActiveSection(label.toLowerCase());
+              handleScroll(label.toLowerCase());
+              // Re-enable observer after scroll completes
+              setTimeout(() => { manualClickRef.current = false; }, 1500);
+            }}
             className="group -translate-y-0.25 w-9 h-9 md:w-14 md:h-14 flex items-center justify-center rounded-full text-muted transition-all"
             aria-label={label}
           >

@@ -74,7 +74,7 @@ const Home = () => {
           href="https://www.linkedin.com/in/uzair-md" target="_blank"
           className="bg-muted/10  group flex gap-2 p-4 rounded-xl justify-center items-center">
             <Linkedin className="group-hover:text-blue-500 transition-colors duration-500 w-5 h-5 "/>
-            <p className="md:text-white/60 translate-y-[1px] text-white/85 group-hover:text-blue-400 transition-colors duration-500">
+            <p className="md:text-white/60 translate-y-[1px] text-white/85 group-hover:text-blue-500 transition-colors duration-500">
               Linkedin
             </p>
           </a>
