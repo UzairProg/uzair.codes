@@ -73,7 +73,7 @@ const Projects = () => {
                                         )
                                     })}
                                 </div>
-                            <p className='text-white/60 mt-2'>{description}</p>
+                            <p className='text-white/60 mt-2 text-justify'>{description}</p>
                             <p className='text-muted'>{techStack}</p>
                             
                             <div className='h-max overflow-hidden rounded-2xl relative'>

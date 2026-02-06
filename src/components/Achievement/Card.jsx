@@ -28,16 +28,16 @@ const Card = ({ title, description, date, source, i, link }) => {
       style={{ top: isDesktop ? `${-50 + 15 * i}px` : `${55 + 1 * i}px` }}
     >
       <div // bg-surface/20
-        className={` bg-linear-to-r from-surface/20 to-blue-500/20 mx-10 md:h-100 backdrop-blur-xl md:w-200 mt-10 rounded-2xl flex flex-col md:flex-row p-6 gap-2 border-border border-2  transition-all duration-500`}
+        className={` bg-linear-to-r from-surface/20 to-blue-500/20 mx-10 md:h-100 backdrop-blur-xl md:w-200 mt-10 rounded-3xl flex flex-col md:flex-row p-6 gap-2 border-border border-2 hover:border-white/25  transition-all duration-500`}
       >
         {/* half and half.. title and desc on left */}
         <div className="">
           <h3 className="text-2xl font-semibold text-white/80">{title}</h3>
           <p className="text-sm text-white/50 mt-2">{date}</p>
-          <p className="text-white/50  mt-3">{description}</p>
+          <p className="text-white/70 mt-3 text-justify">{description}</p>
           {isDesktop && <a href={link} target="_blank" className="flex group justify-center border w-2/3 mt-6 border-border  items-center bg-black/40 gap-2 p-2 rounded-full  transition-all duration-300">
-            <Eye className=" w-6 h-6 text-muted group-hover:text-blue-500/60" />
-            <p className="text-sm text-muted group-hover:border-blue-600/40">View Post</p>
+            <Eye className=" w-6 h-6 text-muted group-hover:text-blue-500/60 transition-all duration-300" />
+            <p className="text-sm text-muted group-hover:text-white/60 transition-colors duration-300">View Post</p>
           </a>}
         </div>
 
