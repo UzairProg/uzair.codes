@@ -31,7 +31,7 @@ const projects = [
         techStack: "React.js, Node.js, Express.js, MongoDB, Socket.IO, Zustand, JWT",
         github: "https://github.com/UzairProg/AeroChat-MERN-App",
         // image: "/Images/Projects/quickResume.png",
-        highlight: ["Applied AI", "PDF Generation"],
+        highlight: ["Real-time", "WebSockets"],
         // live: "https://quick-resume-three.vercel.app/"
     },{
         title: "GSAP K72",
@@ -39,20 +39,20 @@ const projects = [
         techStack: "React.js, GSAP, Tailwind CSS, Vite, React Router",
         github: "https://github.com/UzairProg/React-GSAP-k72",
         image: "/Images/Projects/K72.gif",
-        highlight: ["Applied AI", "PDF Generation"],
+        highlight: ["GSAP Animations", "ScrollTrigger"],
         live: "https://react-k72.vercel.app/"
     },{
         title: "MediaFlow",
         description: "Production-grade backend platform powering media-driven social application with authentication, content management, and social interactions ",
         techStack: "Node.js, Express.js, MongoDB, Mongoose, JWT, Arcjet, RESTful APIs",
         github: "https://github.com/UzairProg/MediaFlow-API",
-        highlight: ["Applied AI", "PDF Generation"],
+        highlight: ["API Architecture", "Backend Security"],
     },
 ]
 
 const Projects = () => {
   return (
-    <div className='min-h-screen scroll-mt-5 px-10' id='projects'>
+    <div className=' scroll-mt-5 px-10' id='projects'>
         <h1 className='text-4xl md:text-6xl font-bold text-center mb-10'>Projects</h1>
         {/* cards for projects */}
         <div className='grid md:grid-cols-3 md:grid-rows-2 md:mx-15 max-h-min gap-15'>
@@ -64,7 +64,7 @@ const Projects = () => {
                                 <h2 className='text-3xl'>{title}</h2>
                                 
                             </div>
-                            <div className='flex gap-2 justify-items-center -mt-2 -mb-3'>
+                            <div className='flex flex-wrap gap-2 justify-items-center -mt-2 -mb-3'>
                                     {highlight.map((val, idx) =>{
                                         return(
                                             <div className='rounded-full text-white/80 bg-border max-h-min px-3 py-1'>
@@ -97,7 +97,7 @@ const Projects = () => {
                             {
                                 live && <a 
                                 href={live} target='_blank'
-                                className='absolute group right-18 top-6 bg-muted/20 p-2 rounded-xl hover:bg-blue-500/20'>
+                                className='absolute hidden md:block group right-18 top-6 bg-muted/20 p-2 rounded-xl hover:bg-blue-500/20'>
                                 <Link className='w-6 h-6 text-white/80 cursor-pointer'/>
                             </a>
                             }

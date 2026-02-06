@@ -29,10 +29,19 @@ const handleScroll = (id) => {
 }
 
 
-
 export default function Navbar() {
   useLenisScroll()
-  const [activeSection, setActiveSection] = React.useState("Home");
+  const [activeSection, setActiveSection] = React.useState("home");
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
   const sections = [
     "home",
@@ -53,7 +62,7 @@ export default function Navbar() {
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6,
+      threshold: isMobile ? 0.1 : 0.6,
     }
   )
 
@@ -63,7 +72,7 @@ export default function Navbar() {
   })
 
   return () => observer.disconnect()
-}, [])
+}, [isMobile])
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -79,20 +88,20 @@ export default function Navbar() {
         {Object.entries(icons).map(([label, Icon]) => (
           <button
             key={label}
-            onClick={() => {handleScroll(label.toLowerCase())}}
+            onClick={() => {setActiveSection(label.toLowerCase()); handleScroll(label.toLowerCase())}}
             className="group -translate-y-0.25 w-9 h-9 md:w-14 md:h-14 flex items-center justify-center rounded-full text-muted transition-all"
             aria-label={label}
           >
             <span
               className="relative group-hover:text-[#dfdddd] text-xs font-medium bg-black/45 p-2 rounded-2xl border border-border border-2 transition-all duration-450"
               style={{
-                borderColor: activeSection === label ? "#9f9f9f" : undefined,
-                color: activeSection === label ? "#dfdddd" : undefined,
+                borderColor: activeSection === label.toLowerCase() ? "#9f9f9f" : undefined,
+                color: activeSection === label.toLowerCase() ? "#dfdddd" : undefined,
               }}
             >
               {Icon}
 
-              {activeSection === label && (
+              {activeSection == label.toLowerCase() && (
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#dfdddd] rounded-full" />
               )}
             </span>
