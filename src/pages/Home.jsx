@@ -85,7 +85,7 @@ const Home = () => {
           className="bg-muted/10 col-span-2 group flex gap-2 p-4 rounded-xl justify-center items-center">
             <Send className=" group-hover:translate-x-[165px]  transition-all duration-550"/>
             <p className="md:text-white/60 text-white/85 group-hover:text-white/95 transition-colors duration-550">
-              <span className="group-hover:text-blue-400/80 transition-colors text-white/75 duration-500">Connect</span> With me!
+              <span className="group-hover:text-blue-400/80 text-blue-400/80 transition-colors md:text-white/75 duration-500">Connect</span> With me!
             </p>
           </a>
         </div>
