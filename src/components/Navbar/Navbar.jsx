@@ -7,7 +7,7 @@ const icons = {
   home: <Compass />,
   projects: <FolderKanban />,
   achievements: <Trophy />,
-  techStack: <Layers />,
+  techstack: <Layers />,
   contact: <Mail />,
 };
 
@@ -48,7 +48,7 @@ export default function Navbar() {
     "home",
     "projects",
     "achievements",
-    "about",
+    "techstack",
     "contact",
   ]
 
