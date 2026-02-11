@@ -3,9 +3,11 @@ import { Copy, CopyCheck, FileText, Linkedin, Mail } from "lucide-react";
 import React from "react";
 import Typewriter from "typewriter-effect";
 import FeedbackCard from "../components/Contact/FeedbackCard";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 const Contact = () => {
   const [copied, setCopied] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleCopy = async () => {
     setCopied(true);
@@ -44,7 +46,7 @@ const Contact = () => {
         />
       </div>
 
-      <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-3  w-1/2">
+      <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-3  md:w-1/2">
         {/* copy email */}
         <div
           onClick={handleCopy}
@@ -63,7 +65,8 @@ const Contact = () => {
 
           {/* dm me.. linkedin dm direct link.. easy to dm */}
         <a
-          href="https://www.linkedin.com/messaging/thread/new/?recipient=uzair-md" target="_blank"
+          href={isMobile ? "https://www.linkedin.com/in/uzair-md" : "https://www.linkedin.com/messaging/thread/new/?recipient=uzair-md"}
+          target="_blank"
           className="bg-[#080808] group flex gap-2 px-4 py-3 rounded-xl justify-center items-center cursor-pointer select-none border-2 border-border hover:border-blue-500/30 transition-colors duration-300 "
         >
             
@@ -102,7 +105,7 @@ const Contact = () => {
       </div>
 
           {/* feedback section */}
-          <div className="w-1/2 flex justify-center">
+          <div className="md:w-1/2 flex justify-center">
           <FeedbackCard  />
           </div>
     </div>

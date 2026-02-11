@@ -73,7 +73,7 @@ const handleSubmit = async (e) => {
         </div>
 
         {/* Action Row */}
-        <div className="flex items-center justify-between pt-2">
+        <div className="flex flex-col gap-2 md:flex-row items-center justify-between pt-2">
           <div className="text-sm text-neutral-600 font-mono">
             {status === "success" ? (<div> <p>"STATUS: DISPATCHED, Thank you for ur feedback!"</p> </div>) : "STATUS: READY"}
           </div>
