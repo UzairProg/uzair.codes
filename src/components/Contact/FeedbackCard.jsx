@@ -67,7 +67,7 @@ const handleSubmit = async (e) => {
             required
             value={formData.message}
             placeholder="Help me optimize: If you were to refactor one thing in my design or my professional path, what would it be?"
-            className="w-full bg-transparent border-b border-white/10 py-2 px-1 text-sm text-white outline-none focus:border-white/40 transition-colors resize-none h-20 placeholder:text-white/40"
+            className="w-full bg-transparent border-b border-white/10 py-2 px-1 text-sm text-white outline-none focus:border-white/40 transition-colors resize-none h-20 placeholder:text-white/20"
             onChange={(e) => setFormData({...formData, message: e.target.value})}
           />
         </div>
