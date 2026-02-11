@@ -12,6 +12,7 @@
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.8.0",
     "@studio-freight/lenis": "^1.0.42",
+    "@supabase/supabase-js": "^2.95.3",
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.30.0",
     "lucide-react": "^0.563.0",
