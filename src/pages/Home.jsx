@@ -30,7 +30,7 @@ const Home = () => {
           <p className="text-white/80 font-medium">
             Software Engineer · Backend & Full Stack · Applied AI & Systems
           </p>
-          <p className="md:w-160 text-white/70 leading-6 md:leading-7 text-justify">
+          <p className="md:w-160 text-white/70 leading-6 md:leading-7 text-left md:text-justify">
             My journey started with{" "}
             <span className="bg-white/15 px-1 rounded-sm text-white/80">
               full-stack development
