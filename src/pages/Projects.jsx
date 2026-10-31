@@ -20,6 +20,7 @@ const projects = [
     {
         title: "QuickResume",
         description: "Full-stack resume builder enabling users to create ATS-optimized resumes in under 5 minutes with AI-powered content generation and PDF exports",
+        // TODO(uzair): correct repo + stack — these are copied from SvaramAI, confirm the real QuickResume repo and tech stack
         techStack: "FastAPI, Python, React.js, LLMs, Retrieval Augmented Generation(RAG)",
         github: "https://github.com/UzairProg/SvaramAI",
         image: "/Images/Projects/quickResume.png",

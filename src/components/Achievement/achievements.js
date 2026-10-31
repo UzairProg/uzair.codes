@@ -1,6 +1,9 @@
+// TODO(uzair): public/Images/Achievements/jec.jfif and muj.jfif exist but aren't referenced by any
+// achievement below — confirm what they're for (a missing entry?) before adding or deleting them.
 export const achievements = [
   {
     title: "Technolegion",
+    // TODO(uzair): prize says "Finalist" but the description says "1st Prize" — confirm which is correct
     prize: "Finalist",
     description:
       "My journey started here. Secured 1st Prize in my first ever hackathon. This win holds a special place as the beginning of everything.",
