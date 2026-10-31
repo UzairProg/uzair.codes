@@ -1,4 +1,4 @@
-import { Earth, Github } from 'lucide-react'
+import { ArrowRight, CreditCard, Earth, Github, RefreshCw, ScanBarcode, ShoppingCart, Truck } from 'lucide-react'
 import React from 'react'
 
 const statusChipClass = (status) => {
@@ -23,7 +23,13 @@ const featuredProject = {
       text: "One inventory across store and web, checkout stock holds, verified payments, automatic invoicing and courier booking, and a POS-to-web publishing pipeline.",
     },
   ],
-  flow: ["POS", "Sync + stock hold", "Payment & invoice", "Courier & tracking"],
+  flow: [
+    { icon: ScanBarcode, title: "In-store sale", caption: "Barcode scan at checkout" },
+    { icon: RefreshCw, title: "Live inventory sync", caption: "Stock updates across POS and web" },
+    { icon: ShoppingCart, title: "Online order", caption: "Checkout places a stock hold" },
+    { icon: CreditCard, title: "Payment verified", caption: "Server-confirmed, invoice auto-generated" },
+    { icon: Truck, title: "Courier & tracking", caption: "Shipping label booked, order tracked" },
+  ],
   stack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Socket.io", "Razorpay", "Shiprocket API", "Cloudinary"],
   // TODO(uzair): 2-3 screenshots (business numbers blurred) at public/Images/Projects/dripcheck-*.webp
   screenshots: [],
@@ -120,18 +126,23 @@ const Projects = () => {
               ))}
             </div>
 
-            {/* How it works, CSS-only connected pills */}
-            <div className='flex flex-wrap items-center gap-2'>
-              {featuredProject.flow.map((step, idx) => (
-                <React.Fragment key={step}>
-                  <div className='rounded-full text-white/70 bg-border max-h-min px-3 py-1 text-sm'>
-                    {step}
-                  </div>
-                  {idx < featuredProject.flow.length - 1 && (
-                    <span className='text-muted'>→</span>
-                  )}
-                </React.Fragment>
-              ))}
+            {/* How it works, CSS-only step diagram */}
+            <div>
+              <p className='text-white/90 font-medium mb-2'>How it works</p>
+              <div className='flex flex-wrap items-stretch gap-2'>
+                {featuredProject.flow.map(({ icon: StepIcon, title, caption }, idx) => (
+                  <React.Fragment key={title}>
+                    <div className='flex flex-col gap-1 border border-border rounded-xl px-3 py-2 w-36'>
+                      <StepIcon className='w-4 h-4 text-blue-300' />
+                      <p className='text-white/80 text-sm font-medium'>{title}</p>
+                      <p className='text-muted text-xs'>{caption}</p>
+                    </div>
+                    {idx < featuredProject.flow.length - 1 && (
+                      <ArrowRight className='w-4 h-4 text-muted shrink-0 self-center hidden sm:block' />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
 
             <div className='flex flex-wrap gap-2'>
