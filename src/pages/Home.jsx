@@ -38,20 +38,35 @@ const Home = () => {
             Full-stack engineer · Builds for real clients · Applied AI
           </p>
           <p className="md:w-160 text-white/70 leading-6 md:leading-7 text-left md:text-justify">
-            I build full-stack products end to end, from client{" "}
+            I build full-stack products end to end: a{" "}
             <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              e-commerce and POS systems
+              POS system running a retail store
             </span>{" "}
-            to{" "}
+            (90–100 sales a day), now being extended into an{" "}
             <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              AI tools
+              e-commerce platform
             </span>{" "}
-            used in national hackathons. 10+ hackathon podiums, one project
-            awarded by the Vice President of India.
+            for the same client, and a{" "}
+            <span className="bg-white/15 px-1 rounded-sm text-white/80">
+              bilingual recruitment platform
+            </span>{" "}
+            as a full-stack intern.{" "}
+            <span className="bg-white/15 px-1 rounded-sm text-white/80">
+              12+ hackathon wins
+            </span>
+            , including a project awarded by the{" "}
+            <span className="bg-white/15 px-1 rounded-sm text-white/80">
+              Vice President of India
+            </span>{" "}
+            and a{" "}
+            <span className="bg-white/15 px-1 rounded-sm text-white/80">
+              Google Solution Challenge top-106
+            </span>{" "}
+            finish.
           </p>
           <p className="text-muted text-sm">
-            Currently → building an e-commerce platform with POS integration
-            for a retail client
+            Currently → Full-stack intern at FAEDA, building a bilingual
+            recruitment platform
           </p>
         </div>
 
