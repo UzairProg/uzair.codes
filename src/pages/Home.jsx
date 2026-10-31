@@ -1,16 +1,23 @@
-import { Github, Linkedin, Send } from "lucide-react";
+import { FileText, Github, Linkedin, Send } from "lucide-react";
 import React from "react";
-
-const icons = {
-  Github: <Github />,
-  LinkedIn: <Linkedin />,
-  Email: <Send />,
-};
 
 const Home = () => {
   return (
-    <div className="h-screen flex justify-center pt-6 md:pt-10 ml-4 mr-4 md:mx-0 scroll-mt-28" id="home">
+    <div className="min-h-screen flex justify-center pt-6 md:pt-10 pb-10 ml-4 mr-4 md:mx-0 scroll-mt-28" id="home">
       <div className="flex flex-col gap-8">
+        {/* Status chip */}
+        <div className="flex">
+          <div className="flex items-center gap-2 bg-muted/10 border border-border rounded-full pl-3 pr-4 py-1.5 w-fit">
+            <span className="relative flex w-2 h-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full w-2 h-2 bg-green-400" />
+            </span>
+            <p className="text-xs md:text-sm text-white/70">
+              Open to SDE roles · Bangalore · Pune · Hyderabad
+            </p>
+          </div>
+        </div>
+
         {/* Image and Name */}
         <div className="flex  gap-4 justify-start items-center">
           <div className="md:w-34 md:h-34 w-28 h-28 overflow-hidden rounded-full md:grayscale-60 hover:grayscale-0 transition-all duration-500">
@@ -26,63 +33,66 @@ const Home = () => {
         </div>
 
         {/* Description abt uzairr */}
-        <div className="md:pt-1 flex flex-col gap-6">
+        <div className="md:pt-1 flex flex-col gap-4">
           <p className="text-white/80 font-medium">
-            Software Engineer · Backend & Full Stack · Applied AI & Systems
+            Full-stack engineer · Builds for real clients · Applied AI
           </p>
           <p className="md:w-160 text-white/70 leading-6 md:leading-7 text-left md:text-justify">
-            My journey started with{" "}
+            I build full-stack products end to end, from client{" "}
             <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              full-stack development
-            </span>
-            , evolved into{" "}
-            <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              backend engineering
-            </span>
-            , then discovered how Applied AI could make both more interesting.
-            Today I build systems across the stack: Node.js APIs, React
-            frontends, MongoDB databases, and{" "}
-            <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              LLM integrations
-            </span>
-            . I've shipped{" "}
-            <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              MERN applications
-            </span>
-            , built Python backends with FastAPI, and integrated{" "}
-            <span className="bg-white/15 px-1 rounded-sm text-white/80">
-              GenAI
+              e-commerce and POS systems
             </span>{" "}
-            into production systems. Constantly learning, constantly building.
+            to{" "}
+            <span className="bg-white/15 px-1 rounded-sm text-white/80">
+              AI tools
+            </span>{" "}
+            used in national hackathons. 10+ hackathon podiums, one project
+            awarded by the Vice President of India.
+          </p>
+          <p className="text-muted text-sm">
+            Currently → building an e-commerce platform with POS integration
+            for a retail client
           </p>
         </div>
 
-        {/* Links to socials and email me scroll thing*/}
-        <div className="grid select-none cursor-pointer grid-rows-2 grid-cols-2 gap-4 justify-center items-center">
-          {/* Github */}
-          <a 
-          href="https://github.com/UzairProg" target="_blank"
-          className="bg-muted/10 group flex gap-2 p-4 rounded-xl justify-center items-center">
-            <Github />
-            <p className="md:text-white/60 text-white/85 group-hover:text-white/95 transition-colors duration-500">
-              Github
+        {/* Resume + socials */}
+        <div className="flex flex-col select-none gap-4 justify-center items-center">
+          {/* Resume - primary CTA */}
+          <a
+          href="/resume.pdf" target="_blank"
+          className="bg-white/90 group cursor-pointer flex gap-2 p-4 rounded-xl justify-center items-center w-full hover:bg-white transition-colors duration-300">
+            <FileText className="text-black w-5 h-5" />
+            <p className="text-black font-medium">
+              Resume
             </p>
           </a>
 
-            {/* LinkedIn */}
-          <a 
-          href="https://www.linkedin.com/in/uzair-md" target="_blank"
-          className="bg-muted/10  group flex gap-2 p-4 rounded-xl justify-center items-center">
-            <Linkedin className="group-hover:text-blue-500 transition-colors duration-500 w-5 h-5 "/>
-            <p className="md:text-white/60 translate-y-[1px] text-white/85 group-hover:text-blue-500 transition-colors duration-500">
-              Linkedin
-            </p>
-          </a>
+          <div className="grid grid-cols-2 gap-4 w-full cursor-pointer">
+            {/* Github */}
+            <a
+            href="https://github.com/UzairProg" target="_blank"
+            className="bg-muted/10 group flex gap-2 p-4 rounded-xl justify-center items-center">
+              <Github />
+              <p className="md:text-white/60 text-white/85 group-hover:text-white/95 transition-colors duration-500">
+                Github
+              </p>
+            </a>
+
+              {/* LinkedIn */}
+            <a
+            href="https://www.linkedin.com/in/uzair-md" target="_blank"
+            className="bg-muted/10  group flex gap-2 p-4 rounded-xl justify-center items-center">
+              <Linkedin className="group-hover:text-blue-500 transition-colors duration-500 w-5 h-5 "/>
+              <p className="md:text-white/60 translate-y-[1px] text-white/85 group-hover:text-blue-500 transition-colors duration-500">
+                Linkedin
+              </p>
+            </a>
+          </div>
 
             {/* connect with me.. mail scroll or just redirect to mail */}
-          <a 
+          <a
           href="mailto:programmeruzair@gmail.com"
-          className="bg-muted/10 col-span-2 group flex gap-2 p-4 rounded-xl justify-center items-center">
+          className="bg-muted/10 w-full cursor-pointer group flex gap-2 p-4 rounded-xl justify-center items-center">
             <Send className=" group-hover:translate-x-[165px]  transition-all duration-550"/>
             <p className="md:text-white/60 text-white/85 group-hover:text-white/95 transition-colors duration-550">
               <span className="group-hover:text-blue-400/80 text-blue-400/80 transition-colors md:text-white/75 duration-500">Connect</span> With me!

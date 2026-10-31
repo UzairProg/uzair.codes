@@ -92,7 +92,7 @@ const Contact = () => {
 
           {/* resume */}
           <a
-          href="https://drive.google.com/file/d/1gYr3vPG0nXEFob2Wa_oD84-QBKKrQUfD/view?usp=sharing" target="_blank"
+          href="/resume.pdf" target="_blank"
           className="bg-[#080808] group flex gap-2 px-4 py-3 rounded-xl justify-center items-center cursor-pointer select-none border-2 border-border hover:border-blue-500/30 transition-colors duration-300 "
         >
             
