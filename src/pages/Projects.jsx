@@ -9,7 +9,7 @@ const statusChipClass = (status) => {
 }
 
 const featuredProject = {
-  title: "DripCheck — POS to omnichannel commerce",
+  title: "DripCheck: POS to omnichannel commerce",
   lead: "Built a store's POS solo. It now runs their daily sales, so they hired me again to take them online.",
   parts: [
     {

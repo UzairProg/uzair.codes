@@ -17,7 +17,7 @@ const Achievements = () => {
               strings: [
                 "12+ Hackathon Wins 🏆 Across National & State Levels",
                 "Project HAWK Awarded by the Vice President of India",
-                "Google Solution Challenge 2026 — Top 106",
+                "Google Solution Challenge 2026: Top 106",
                 "Smart India Hackathon (SIH) 2025 Finalist",
                 "Building for real clients alongside college",
               ],

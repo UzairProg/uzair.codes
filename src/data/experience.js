@@ -5,7 +5,7 @@ export const experience = [
     location: "Saudi Arabia · Remote",
     type: "Internship",
     dates: "Jul 2026 – Present",
-    product: "FAEDA WAZAYIF — a recruitment & career platform",
+    product: "FAEDA WAZAYIF, a recruitment & career platform",
     live: "https://faeda-wazayif-1.onrender.com",
     bullets: [
       "Build features across React, TypeScript, Python and Flask: candidate profiles, job discovery, applications and university verification.",

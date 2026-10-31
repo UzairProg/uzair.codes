@@ -1,6 +1,6 @@
 # uzair.codes
 
-Uzair Mohammad's personal portfolio — a single-page site built with React, Vite, and Tailwind CSS, covering experience, projects, 12+ hackathon wins, tech stack, and a contact form.
+Uzair Mohammad's personal portfolio, a single-page site built with React, Vite, and Tailwind CSS, covering experience, projects, 12+ hackathon wins, tech stack, and a contact form.
 
 ## Running locally
 
@@ -28,4 +28,4 @@ VITE_SUPABASE_URL=your-supabase-project-url
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
 
-For local work without real credentials, any placeholder values will let the app boot — the contact form just won't actually submit.
+For local work without real credentials, any placeholder values will let the app boot; the contact form just won't actually submit.

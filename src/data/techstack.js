@@ -42,7 +42,7 @@ import {
     SiVercel,
     SiRender
 } from '@icons-pack/react-simple-icons'
-// Recharts, Qdrant, and plain "SQL" have no accurate brand logo in this icon set —
+// Recharts, Qdrant, and plain "SQL" have no accurate brand logo in this icon set;
 // neutral lucide icons stand in rather than borrowing another product's logo.
 import { BarChart3, Database, Table, Box, Braces, Globe } from 'lucide-react'
 
