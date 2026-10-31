@@ -1,6 +1,6 @@
 # uzair.codes
 
-Uzair Mohammad's personal portfolio — a single-page site built with React, Vite, and Tailwind CSS, covering experience, projects, hackathon achievements, tech stack, and a contact form.
+Uzair Mohammad's personal portfolio — a single-page site built with React, Vite, and Tailwind CSS, covering experience, projects, 12+ hackathon wins, tech stack, and a contact form.
 
 ## Running locally
 
