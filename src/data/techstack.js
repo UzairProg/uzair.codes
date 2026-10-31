@@ -1,21 +1,23 @@
-import { 
-    SiReact, 
-    SiRedux, 
-    SiTailwindcss, 
-    SiHtml5, 
-    SiCss, 
-    SiJavascript, 
-    SiGsap, 
+import {
+    SiReact,
+    SiRedux,
+    SiTailwindcss,
+    SiHtml5,
+    SiCss,
+    SiJavascript,
+    SiGsap,
     SiFramer,
-    SiGoogletagmanager,
     SiNodedotjs,
     SiExpress,
+    SiSocketdotio,
     SiPython,
     SiFastapi,
     SiPostman,
     SiJsonwebtokens,
     SiMongodb,
+    SiMongoose,
     SiFirebase,
+    SiSupabase,
     SiOpenai,
     SiGooglegemini,
     SiOpensearch,
@@ -24,16 +26,18 @@ import {
     SiHuggingface,
     SiPandas,
     SiGithubactions,
-    SiDynatrace,
-    SiGrocy,
     SiGit,
     SiGithub,
-   SiDocker,
-    SiWebmoney,
-    SiLinux,
+    SiSelenium,
+    SiDocker,
     SiVercel,
     SiRender
 } from '@icons-pack/react-simple-icons'
+// Zustand, Grok, NLP pipelines, and web scraping have no accurate brand logo in this
+// icon set — real logos (Google Tag Manager, Grocy, Dynatrace, WebMoney) stood in for
+// them before and read as wrong-brand mistakes to anyone who recognizes those marks.
+// Neutral lucide icons replace them instead of borrowing someone else's identity.
+import { Bot, Box, Braces, Globe } from 'lucide-react'
 
 export const techStackFrontendData = [
      {
@@ -46,7 +50,7 @@ export const techStackFrontendData = [
      },
      {
         title: "Zustand",
-        Icon: SiGoogletagmanager
+        Icon: Box
      },
      {
         title: "Tailwind CSS",
@@ -84,6 +88,10 @@ export const techStackBackendData = [
         Icon: SiExpress
      },
      {
+        title: "Socket.IO",
+        Icon: SiSocketdotio
+     },
+     {
         title: "Python",
         Icon: SiPython
      },
@@ -107,8 +115,16 @@ export const databaseData = [
         Icon: SiMongodb
      },
      {
+        title: "Mongoose",
+        Icon: SiMongoose
+     },
+     {
         title: "Firebase",
         Icon: SiFirebase
+     },
+     {
+        title: "Supabase",
+        Icon: SiSupabase
      }
 ]
 
@@ -123,7 +139,7 @@ export const aiAndAutomationData = [
      },
      {
         title: "Grok API",
-        Icon: SiGrocy
+        Icon: Bot
      },
      {
         title: "Retrieval Augmented Generation",
@@ -139,7 +155,7 @@ export const aiAndAutomationData = [
      },
      {
         title: "NLP Pipelines",
-        Icon: SiDynatrace
+        Icon: Braces
      },
      {
         title: "Huggingface",
@@ -170,19 +186,11 @@ export const devToolsData = [
      },
      {
         title: "Web Scraping (BeautifulSoup)",
-        Icon: SiWebmoney
+        Icon: Globe
      },
      {
-        title: "Async Programming",
-        Icon: SiNodedotjs
-     },
-     {
-        title: "Debugging & Logging",
-        Icon: SiPython
-     },
-     {
-        title: "Linux Basics",
-        Icon: SiLinux
+        title: "Selenium",
+        Icon: SiSelenium
      },
      {
         title: "Docker",

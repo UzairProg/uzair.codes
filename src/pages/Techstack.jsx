@@ -48,8 +48,10 @@ const TechstackMobile = () => (
       <MobileGroup heading="Deployment" items={deploymentData} />
       <p className="text-white/60 text-sm leading-relaxed">
         I follow clean development workflows with version control,
-        structured debugging, and documentation. I prioritize
-        maintainability and clarity so systems are easy to extend and debug.
+        structured debugging, and documentation. Comfortable writing
+        async code, working on Linux, and tracing issues through logs.
+        I prioritize maintainability and clarity so systems are easy
+        to extend and debug.
       </p>
     </div>
   </div>
@@ -216,7 +218,7 @@ const TechstackDesktop = () => {
                         <Card title={item.title} Icon={item.Icon} />
                       </motion.div>
                     ))}
-                  <motion.p drag dragConstraints={deploymentConstraints} className="text-white/60 cursor-grab active:cursor-grabbing text-sm md:text-lg leading-relaxed w-2/3 mt-6">I follow clean development workflows with version control, structured debugging, and documentation. I prioritize maintainability and clarity so systems are easy to extend and debug.</motion.p>
+                  <motion.p drag dragConstraints={deploymentConstraints} className="text-white/60 cursor-grab active:cursor-grabbing text-sm md:text-lg leading-relaxed w-2/3 mt-6">I follow clean development workflows with version control, structured debugging, and documentation. Comfortable writing async code, working on Linux, and tracing issues through logs. I prioritize maintainability and clarity so systems are easy to extend and debug.</motion.p>
                   </div>
                 </div>
               </div>
