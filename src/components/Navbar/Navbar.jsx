@@ -1,10 +1,11 @@
-import { Compass, FolderKanban, Layers, Mail, Trophy } from "lucide-react";
+import { Briefcase, Compass, FolderKanban, Layers, Mail, Trophy } from "lucide-react";
 import React, {useEffect} from "react";
 import { easeInOut, motion } from "framer-motion";
 import useLenisScroll, { getLenis } from "../../hooks/useLenisScroll.js";
 
 const icons = {
   home: <Compass />,
+  experience: <Briefcase />,
   projects: <FolderKanban />,
   achievements: <Trophy />,
   techstack: <Layers />,
@@ -46,6 +47,7 @@ export default function Navbar() {
   useEffect(() => {
   const sections = [
     "home",
+    "experience",
     "projects",
     "achievements",
     "techstack",
