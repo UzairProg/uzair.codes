@@ -58,8 +58,7 @@ export const achievements = [
   },
   {
     title: "Technolegion: where it started",
-    // TODO(uzair): prize says "Finalist" but the description says "1st Prize" — confirm which is correct
-    prize: "Finalist",
+    prize: "1st Prize",
     description:
       "My journey started here. Secured 1st Prize in my first ever hackathon. This win holds a special place as the beginning of everything.",
     date: "11 November 2024",

@@ -6,13 +6,12 @@ export const experience = [
   {
     role: "Freelance Full-stack Developer",
     company: "DripCheck", // TODO(uzair): confirm public naming — fallback "Retail fashion brand"
-    client: "Team Pravartak",
     type: "Freelance",
     dateRange: "TODO(uzair) – Present",
     bullets: [
       "TODO(uzair): what the POS system does + one number (bills/day, products, stores)",
       "Building the brand's e-commerce website integrated with that POS: catalogue, cart, checkout and inventory synced with the store. Phase 2 adds memberships and customer insights.",
-      "Owned scoping, the client proposal, and delivery with the team.",
+      "Owned scoping, the client proposal, and delivery, solo end to end.",
     ],
     stack: [], // TODO(uzair): stack used for the DripCheck work
   },

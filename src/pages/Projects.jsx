@@ -6,7 +6,6 @@ import React from 'react'
 // TODO(uzair): one real number or outcome for the "Result" line
 const featuredProject = {
   title: "DripCheck: E-commerce + POS",
-  client: "Team Pravartak",
   status: "In progress",
   caseStudy: [
     { label: "Problem", text: "The store's billing and inventory lived offline, separate from online sales." },
@@ -93,8 +92,6 @@ const Projects = () => {
                 </p>
               ))}
             </div>
-
-            <p className='text-muted'>{featuredProject.client}</p>
 
             {featuredProject.live && (
               <a
