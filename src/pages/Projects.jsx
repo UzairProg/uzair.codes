@@ -61,7 +61,7 @@ const Projects = () => {
     <div className=' scroll-mt-5 px-4 md:px-10' id='projects'>
         <h1 className='text-4xl md:text-6xl font-bold text-center mb-10'>Projects</h1>
         {/* cards for projects */}
-        <div className='grid md:grid-cols-3 md:mx-15 max-h-min gap-6 md:gap-15'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 lg:mx-15 max-h-min gap-6 md:gap-10 lg:gap-15'>
             {
                 projects.map(({title, description, techStack, live=null, github, image="/Images/Projects/Github.webp", imageSize=[1600, 1069], video=null, highlight}) =>{
                     return(

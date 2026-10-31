@@ -28,7 +28,7 @@ const Card = ({ title, description, date, source, i, link }) => {
       style={{ top: isDesktop ? `${-50 + 15 * i}px` : `${55 + 1 * i}px` }}
     >
       <div // bg-surface/20
-        className={` bg-linear-to-r from-surface/20 to-blue-500/20 mx-10 md:h-100 backdrop-blur-xl md:w-200 mt-10 rounded-3xl flex flex-col md:flex-row p-6 gap-2 border-border border-2 hover:border-white/25  transition-all duration-500`}
+        className={` bg-linear-to-r from-surface/20 to-blue-500/20 w-[calc(100%-5rem)] md:max-w-200 mx-auto md:h-100 backdrop-blur-xl mt-10 rounded-3xl flex flex-col md:flex-row p-6 gap-2 border-border border-2 hover:border-white/25  transition-all duration-500`}
       >
         {/* half and half.. title and desc on left */}
         <div className="">
