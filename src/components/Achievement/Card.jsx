@@ -49,6 +49,7 @@ const Card = ({ title, description, date, source, i, link }) => {
         >
           <motion.img
             src={source}
+            loading="lazy"
             className=" rounded-xl will-change-[filter]"
             style={{ filter: isDesktop ? grayscale : "none" }}
           />

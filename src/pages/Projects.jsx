@@ -7,7 +7,8 @@ const projects = [
         description: "Automated ML-powered cybersecurity system that detects new OEM vulnerabilities and extracts actionable threat intelligence from unstructured security data for faster response.",
         techStack: "Node.js, Express.js, Python, Web Scraping, MongoDB, REST APIs",
         github: "https://github.com/UzairProg/HAWK",
-        image: "/Images/Projects/hawk_dashboard.jpg",
+        image: "/Images/Projects/hawk_dashboard.webp",
+        imageSize: [1600, 826],
         highlight: ["NLP", "Webscraping"]
     },
     {
@@ -23,7 +24,8 @@ const projects = [
         // TODO(uzair): correct repo + stack — these are copied from SvaramAI, confirm the real QuickResume repo and tech stack
         techStack: "FastAPI, Python, React.js, LLMs, Retrieval Augmented Generation(RAG)",
         github: "https://github.com/UzairProg/SvaramAI",
-        image: "/Images/Projects/quickResume.png",
+        image: "/Images/Projects/quickResume.webp",
+        imageSize: [1600, 850],
         highlight: ["Applied AI", "PDF Generation"],
         live: "https://quick-resume-three.vercel.app/"
     },{
@@ -39,7 +41,10 @@ const projects = [
         description: "Interactive portfolio website featuring scroll-driven animations and modern UI effects with smooth performance across devices",
         techStack: "React.js, GSAP, Tailwind CSS, Vite, React Router",
         github: "https://github.com/UzairProg/React-GSAP-k72",
-        image: "/Images/Projects/K72.gif",
+        video: {
+            mp4: "/Images/Projects/K72.mp4",
+            webm: "/Images/Projects/K72.webm",
+        },
         highlight: ["GSAP Animations", "ScrollTrigger"],
         live: "https://react-k72.vercel.app/"
     },{
@@ -58,7 +63,7 @@ const Projects = () => {
         {/* cards for projects */}
         <div className='grid md:grid-cols-3 md:mx-15 max-h-min gap-6 md:gap-15'>
             {
-                projects.map(({title, description, techStack, live=null, github, image="/Images/Projects/Github.png", highlight}) =>{
+                projects.map(({title, description, techStack, live=null, github, image="/Images/Projects/Github.webp", imageSize=[1600, 1069], video=null, highlight}) =>{
                     return(
                         <div key={title} className='bg-surface relative group flex flex-col justify-between p-6 pb-0 rounded-2xl gap-4 hover:bg-blue-500/5 border-2 border-border transition-all duration-500 hover:-translate-y-0.5 hover:border-white/30 hover:shadow-lg'>
                             <div className='flex gap-3 items-center'>
@@ -78,7 +83,23 @@ const Projects = () => {
                             <p className='text-muted'>{techStack}</p>
                             
                             <div className='h-max overflow-hidden rounded-2xl relative'>
-                                <img className='md:grayscale-90 object-cover group-hover:grayscale-0 transition-all duration-500' src={image}/>
+                                {video ? (
+                                    <video
+                                        className='md:grayscale-90 object-cover group-hover:grayscale-0 transition-all duration-500 w-full'
+                                        autoPlay muted loop playsInline
+                                    >
+                                        <source src={video.webm} type="video/webm" />
+                                        <source src={video.mp4} type="video/mp4" />
+                                    </video>
+                                ) : (
+                                    <img
+                                        className='md:grayscale-90 w-full h-auto object-cover group-hover:grayscale-0 transition-all duration-500'
+                                        src={image}
+                                        width={imageSize[0]}
+                                        height={imageSize[1]}
+                                        loading='lazy'
+                                    />
+                                )}
                                 {
                                 live && <a 
                                 href={live} target='_blank'
