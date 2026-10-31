@@ -1,26 +1,39 @@
 import { Earth, Github } from 'lucide-react'
 import React from 'react'
 
-// TODO(uzair): confirm whether "DripCheck" can be named publicly — if not, swap for "Retail fashion brand"
-// TODO(uzair): live link once the site ships, and 2-3 screenshots at public/Images/Projects/dripcheck-*.webp
-// TODO(uzair): one real number or outcome for the "Result" line
+const statusChipClass = (status) => {
+  const isShipped = status.toLowerCase() === 'shipped'
+  return isShipped
+    ? 'text-green-300 bg-green-500/15 border border-green-500/30'
+    : 'text-amber-300 bg-amber-500/15 border border-amber-500/30'
+}
+
 const featuredProject = {
-  title: "DripCheck: E-commerce + POS",
-  status: "In progress",
-  caseStudy: [
-    { label: "Problem", text: "The store's billing and inventory lived offline, separate from online sales." },
-    { label: "Built", text: "A POS system plus an e-commerce site that shares inventory and orders with it." },
-    { label: "Result", text: "TODO(uzair): one real number or outcome" },
+  title: "DripCheck — POS to omnichannel commerce",
+  lead: "Built a store's POS solo. It now runs their daily sales, so they hired me again to take them online.",
+  parts: [
+    {
+      label: "01 · POS & inventory",
+      status: "Shipped",
+      text: "90–100 sales a day, 5 daily users, rolling out to a second store. Barcode checkout, real-time cart sync, roles, analytics, reports.",
+    },
+    {
+      label: "02 · E-commerce + POS sync",
+      status: "In development",
+      text: "One inventory across store and web, checkout stock holds, verified payments, automatic invoicing and courier booking, and a POS-to-web publishing pipeline.",
+    },
   ],
-  live: null,
-  screenshots: [], // TODO(uzair): public/Images/Projects/dripcheck-*.webp
+  flow: ["POS", "Sync + stock hold", "Payment & invoice", "Courier & tracking"],
+  stack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Socket.io", "Razorpay", "Shiprocket API", "Cloudinary"],
+  // TODO(uzair): 2-3 screenshots (business numbers blurred) at public/Images/Projects/dripcheck-*.webp
+  screenshots: [],
 }
 
 const selectedProjects = [
   {
     title: "HAWK",
-    description: "Automated ML-powered cybersecurity system that detects new OEM vulnerabilities and extracts actionable threat intelligence from unstructured security data for faster response.",
-    techStack: "Node.js, Express.js, Python, Web Scraping, MongoDB, REST APIs",
+    description: "Automated ML-powered cybersecurity system that detects new OEM vulnerabilities and extracts actionable threat intelligence from unstructured security data for faster response, with real-time alerts across 200+ vulnerability records.",
+    techStack: "Node.js, Python, MongoDB, React, NLP",
     github: "https://github.com/UzairProg/HAWK",
     image: "/Images/Projects/hawk_dashboard.webp",
     imageSize: [1600, 826],
@@ -28,27 +41,34 @@ const selectedProjects = [
     highlight: ["NLP", "Webscraping"]
   },
   {
-    title: "QuickResume",
-    description: "Builds an ATS-friendly resume in under 5 minutes with AI-written bullet points and PDF export.",
-    // TODO(uzair): correct repo + stack — these are copied from SvaramAI, confirm the real QuickResume repo and tech stack
-    techStack: "FastAPI, Python, React.js, LLMs, Retrieval Augmented Generation(RAG)",
-    github: "https://github.com/UzairProg/SvaramAI",
-    image: "/Images/Projects/quickResume.webp",
-    imageSize: [1600, 850],
-    highlight: ["Applied AI", "PDF Generation"],
-    live: "https://quick-resume-three.vercel.app/"
+    title: "Allocare",
+    description: "Helps NGOs turn field reports, spreadsheets and voice notes into prioritised actions: volunteer matching, urgency ranking and resource allocation for disasters and health crises.",
+    techStack: "Flutter, Firebase, Cloud Functions, Gemini, Vertex AI, Google Maps",
+    github: "https://github.com/UzairProg/Allocare",
+    video: {
+      mp4: "/Images/Projects/allocare.mp4",
+      webm: "/Images/Projects/allocare.webm",
+    },
+    badge: "Google Solution Challenge · Top 106",
+    highlight: ["NGO Tech", "Disaster Response"]
   },
   {
     title: "SvaramAI",
     description: "Identifies the metre (chandas) of Sanskrit shlokas using an LLM with retrieval (RAG).",
-    techStack: "FastAPI, Python, React.js, LLMs, Retrieval Augmented Generation(RAG)",
+    techStack: "React, FastAPI, LangChain, LangGraph, Qdrant, RAG",
     github: "https://github.com/UzairProg/SvaramAI",
     highlight: ["LLMs", "RAG"]
   },
 ]
 
-// TODO(uzair): real screenshots for AeroChat and MediaFlow
 const moreProjects = [
+  {
+    title: "QuickResume",
+    description: "Builds an ATS-friendly resume in under 5 minutes with AI-written bullet points and PDF export.",
+    techStack: "React, Node.js, Express, MongoDB, PDF generation, AI",
+    github: "https://github.com/UzairProg/QuickResume",
+    live: "https://quick-resume-three.vercel.app/",
+  },
   {
     title: "AeroChat",
     description: "Real-time messaging with delivery, typing indicators, and presence tracking.",
@@ -79,28 +99,50 @@ const Projects = () => {
               <div className='rounded-full text-blue-300 bg-blue-500/15 border border-blue-500/30 max-h-min px-3 py-1 text-sm'>
                 Client project
               </div>
-              <div className='rounded-full text-amber-300 bg-amber-500/15 border border-amber-500/30 max-h-min px-3 py-1 text-sm'>
-                {featuredProject.status}
+              <div className='rounded-full text-violet-300 bg-violet-500/15 border border-violet-500/30 max-h-min px-3 py-1 text-sm'>
+                Repeat client
               </div>
             </div>
 
-            <div className='flex flex-col gap-2'>
-              {featuredProject.caseStudy.map(({ label, text }) => (
-                <p key={label} className='text-white/70 text-left md:text-justify'>
-                  <span className='text-white/90 font-medium'>{label}: </span>
-                  {text}
-                </p>
+            <p className='text-white/70 text-left md:text-justify'>{featuredProject.lead}</p>
+
+            <div className='flex flex-col gap-3'>
+              {featuredProject.parts.map(({ label, status, text }) => (
+                <div key={label} className='border border-border rounded-xl p-4 flex flex-col gap-2'>
+                  <div className='flex flex-wrap items-center gap-2'>
+                    <h3 className='text-white/90 font-medium'>{label}</h3>
+                    <span className={`rounded-full max-h-min px-2 py-0.5 text-xs ${statusChipClass(status)}`}>
+                      {status}
+                    </span>
+                  </div>
+                  <p className='text-white/60 text-left md:text-justify'>{text}</p>
+                </div>
               ))}
             </div>
 
-            {featuredProject.live && (
-              <a
-              href={featuredProject.live} target='_blank'
-              className='select-none flex gap-2 items-center group w-fit bg-blue-500 hover:bg-blue-500/80 px-3 py-2 rounded-lg transition-colors duration-300'>
-                <Earth className='w-5 h-5 text-white/80'/>
-                <p>Live link</p>
-              </a>
-            )}
+            {/* How it works, CSS-only connected pills */}
+            <div className='flex flex-wrap items-center gap-2'>
+              {featuredProject.flow.map((step, idx) => (
+                <React.Fragment key={step}>
+                  <div className='rounded-full text-white/70 bg-border max-h-min px-3 py-1 text-sm'>
+                    {step}
+                  </div>
+                  {idx < featuredProject.flow.length - 1 && (
+                    <span className='text-muted'>→</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <div className='flex flex-wrap gap-2'>
+              {featuredProject.stack.map((tech) => (
+                <div key={tech} className='rounded-full text-white/80 bg-border max-h-min px-3 py-1 text-sm'>
+                  {tech}
+                </div>
+              ))}
+            </div>
+
+            <p className='text-muted text-sm'>Live demo on request</p>
           </div>
 
           {featuredProject.screenshots.length > 0 && (
@@ -118,7 +160,7 @@ const Projects = () => {
       {/* 3b. Selected projects */}
       <div className='grid md:grid-cols-2 lg:grid-cols-3 lg:mx-15 max-h-min gap-6 md:gap-10 lg:gap-15 mb-10'>
         {
-          selectedProjects.map(({title, description, techStack, live=null, github, image=null, imageSize=[1600, 1069], highlight, badge=null}) =>{
+          selectedProjects.map(({title, description, techStack, live=null, github, image=null, imageSize=[1600, 1069], video=null, highlight=[], badge=null}) =>{
             return(
               <div key={title} className='bg-surface relative group flex flex-col justify-between p-6 pb-0 rounded-2xl gap-4 hover:bg-blue-500/5 border-2 border-border transition-all duration-500 hover:-translate-y-0.5 hover:border-white/30 hover:shadow-lg'>
                 <div className='flex gap-3 items-center'>
@@ -143,7 +185,17 @@ const Projects = () => {
                 <p className='text-white/60 mt-2 text-left md:text-justify'>{description}</p>
                 <p className='text-muted'>{techStack}</p>
 
-                {image && (
+                {video ? (
+                  <div className='h-max overflow-hidden rounded-2xl relative'>
+                    <video
+                      className='md:grayscale-90 object-cover group-hover:grayscale-0 transition-all duration-500 w-full'
+                      autoPlay muted loop playsInline
+                    >
+                      <source src={video.webm} type="video/webm" />
+                      <source src={video.mp4} type="video/mp4" />
+                    </video>
+                  </div>
+                ) : image ? (
                   <div className='h-max overflow-hidden rounded-2xl relative'>
                     <img
                       className='md:grayscale-90 w-full h-auto object-cover group-hover:grayscale-0 transition-all duration-500'
@@ -161,8 +213,9 @@ const Projects = () => {
                     </a>
                     }
                   </div>
+                ) : (
+                  <div className='pb-6' />
                 )}
-                {!image && <div className='pb-6' />}
 
                 <a
                 href={github} target='_blank'
@@ -179,10 +232,9 @@ const Projects = () => {
       <div className='lg:mx-15'>
         <h3 className='text-2xl text-white/80 mb-4'>More on GitHub</h3>
         <div className='flex flex-col gap-2'>
-          {moreProjects.map(({title, description, techStack, github}) => (
-            <a
+          {moreProjects.map(({title, description, techStack, github, live=null}) => (
+            <div
               key={title}
-              href={github} target='_blank'
               className='flex flex-col md:flex-row md:items-center gap-2 md:gap-4 justify-between p-4 rounded-xl border border-border bg-surface/50 hover:bg-blue-500/5 hover:border-white/30 transition-all duration-300'
             >
               <div className='flex flex-col md:flex-row md:items-center gap-1 md:gap-4'>
@@ -191,9 +243,20 @@ const Projects = () => {
               </div>
               <div className='flex items-center gap-3 shrink-0'>
                 <p className='text-muted text-sm'>{techStack}</p>
-                <Github className='w-5 h-5 text-white/60' />
+                {live && (
+                  <a
+                    href={live} target='_blank'
+                    className='flex items-center gap-1 text-blue-400/80 hover:text-blue-400 transition-colors duration-300 text-sm'
+                  >
+                    <Earth className='w-4 h-4' />
+                    Live
+                  </a>
+                )}
+                <a href={github} target='_blank'>
+                  <Github className='w-5 h-5 text-white/60 hover:text-white/85 transition-colors duration-300' />
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
         <a
