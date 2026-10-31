@@ -1,30 +1,50 @@
-// TODO(uzair): confirm whether DripCheck can be named publicly — if not, swap "DripCheck" for "a retail fashion brand"
-// TODO(uzair): confirm start month for the DripCheck engagement
-// TODO(uzair): what the POS system does + one number (bills/day, products, stores)
-// TODO(uzair): stack used for the DripCheck work
 export const experience = [
   {
-    role: "Freelance Full-stack Developer",
-    company: "DripCheck", // TODO(uzair): confirm public naming — fallback "Retail fashion brand"
-    type: "Freelance",
-    dateRange: "TODO(uzair) – Present",
+    role: "Full-Stack Developer Intern",
+    company: "FAEDA",
+    location: "Saudi Arabia · Remote",
+    type: "Internship",
+    dates: "Jul 2026 – Present",
+    product: "FAEDA WAZAYIF — a recruitment & career platform",
+    live: "https://faeda-wazayif-1.onrender.com",
     bullets: [
-      "TODO(uzair): what the POS system does + one number (bills/day, products, stores)",
-      "Building the brand's e-commerce website integrated with that POS: catalogue, cart, checkout and inventory synced with the store. Phase 2 adds memberships and customer insights.",
-      "Owned scoping, the client proposal, and delivery, solo end to end.",
+      "Build features across React, TypeScript, Python and Flask: candidate profiles, job discovery, applications and university verification.",
+      "Set up authentication and role-based access for four user types: job seekers, companies, universities and admins.",
+      "Shipped full English/Arabic localisation with RTL and LTR layouts.",
+      "Work directly with the CEO on product planning, UX decisions and testing.",
     ],
-    stack: [], // TODO(uzair): stack used for the DripCheck work
+    stack: ["React", "TypeScript", "Tailwind CSS", "Python", "Flask"],
   },
   {
-    role: "TODO(uzair)",
-    company: "TODO(uzair)",
-    type: "Internship",
-    dateRange: "TODO(uzair)",
-    bullets: [
-      "TODO(uzair)",
-      "TODO(uzair)",
+    role: "Freelance Full-Stack Developer",
+    company: "DripCheck",
+    location: "Retail store · Client work",
+    type: "Freelance",
+    dates: "Jul 2026 – Present",
+    product: "Two engagements, built solo end to end",
+    live: null, // no public link to the client's production system
+    engagements: [
+      {
+        title: "Retail POS & inventory system",
+        status: "Shipped · Jul – Sep 2026",
+        bullets: [
+          "In daily use by 3 staff and 2 admins, processing 90–100 sales a day; expanding to a second store.",
+          "Barcode (Code-128) checkout with real-time cart sync over Socket.io and PIN-based staff login.",
+          "Analytics for revenue, inventory and product performance, plus Excel/PDF reports and a returns workflow.",
+          "JWT auth with staff/admin roles on a layered backend (controllers, services, models).",
+        ],
+      },
+      {
+        title: "E-commerce platform with live POS sync",
+        status: "In development · Oct 2026 – Present",
+        bullets: [
+          "The client came back to take the store online: a storefront that shares one live inventory with the in-store POS.",
+          "Two-way stock sync plus a short checkout reservation hold, so online and in-store buyers can never buy the same last unit.",
+          "Server-verified payments, auto-generated invoices, courier booking with shipping labels, and self-service order tracking.",
+          "Automated publishing pipeline: a product registered in the POS becomes a reviewed web listing, with image processing, readable titles, SEO metadata and validation.",
+        ],
+      },
     ],
-    stack: [], // TODO(uzair)
-    hidden: true, // render only once the fields above are filled in
+    stack: ["React", "TypeScript", "Tailwind CSS", "Radix UI", "Node.js", "Express", "MongoDB", "Socket.io", "Recharts"],
   },
 ];
