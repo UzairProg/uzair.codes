@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/pages/Techstack.jsx"
+        ],
+        "createdAt": "2026-10-31T04:43:59.704Z",
+        "reason": "pre-existing design kept per handoff brief: refresh, not a redesign; accent borders predate this branch"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "src/pages/Techstack.jsx"
+        ],
+        "createdAt": "2026-10-31T04:44:00.005Z",
+        "reason": "pre-existing design kept per handoff brief: refresh, not a redesign; accent borders predate this branch"
+      },
+      {
+        "rule": "overused-font",
+        "value": "lato",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-10-31T04:44:22.089Z",
+        "reason": "pre-existing site font kept per handoff brief: refresh, not a redesign"
+      }
+    ]
+  }
+}
