@@ -91,7 +91,7 @@ const moreProjects = [
 
 const Projects = () => {
   return (
-    <div className='scroll-mt-5 px-4 md:px-10' id='projects'>
+    <div className='scroll-mt-5 px-4 md:px-10 pt-16 md:pt-24' id='projects'>
       <h1 className='text-4xl md:text-6xl font-bold text-center mb-10'>Projects</h1>
 
       {/* 3a. Featured client project */}

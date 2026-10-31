@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import { Earth } from 'lucide-react'
 import { motion, useInView, useScroll } from 'framer-motion'
 import { experience } from '../data/experience'
@@ -10,20 +10,24 @@ const statusChipClass = (status) => {
     : 'text-amber-300 bg-amber-500/15 border border-amber-500/30'
 }
 
-const ExperienceCard = ({ entry }) => {
+const ExperienceCard = ({ entry, dotRef }) => {
   const cardRef = useRef(null)
   const isActive = useInView(cardRef, { margin: '-45% 0px -45% 0px' })
 
   return (
-    <div ref={cardRef} className='relative'>
-      <div
-        className={`hidden md:block absolute -left-10 top-7 w-3 h-3 rounded-full border-2 border-bg transition-all duration-500 ${
-          isActive ? 'bg-blue-400 scale-125' : 'bg-blue-400/40'
-        }`}
-      />
+    <div ref={cardRef} className='relative flex gap-4 md:gap-6 items-start'>
+      {/* dot column, fixed offset from the row's top so it lines up with the title */}
+      <div className='hidden md:flex w-12 shrink-0 justify-center pt-8'>
+        <div
+          ref={dotRef}
+          className={`w-4 h-4 rounded-full border-2 border-bg transition-all duration-500 ${
+            isActive ? 'bg-blue-400 scale-110 shadow-[0_0_0_4px_rgba(96,165,250,0.15)]' : 'bg-blue-400/30'
+          }`}
+        />
+      </div>
 
       <div
-        className={`bg-surface relative group flex flex-col p-6 rounded-2xl gap-4 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg border-2 ${
+        className={`bg-surface relative group flex flex-col flex-1 p-6 rounded-2xl gap-4 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg border-2 ${
           isActive ? 'bg-blue-500/5 border-white/30' : 'border-border hover:border-white/30 hover:bg-blue-500/5'
         }`}
       >
@@ -94,24 +98,54 @@ const ExperienceCard = ({ entry }) => {
 
 const Experience = () => {
   const timelineRef = useRef(null)
+  const firstDotRef = useRef(null)
+  const lastDotRef = useRef(null)
+  const [line, setLine] = useState({ top: 0, height: 0 })
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const container = timelineRef.current
+      const firstDot = firstDotRef.current
+      const lastDot = lastDotRef.current
+      if (!container || !firstDot || !lastDot) return
+
+      const containerTop = container.getBoundingClientRect().top
+      const firstCenter = firstDot.getBoundingClientRect().top - containerTop + firstDot.offsetHeight / 2
+      const lastCenter = lastDot.getBoundingClientRect().top - containerTop + lastDot.offsetHeight / 2
+
+      setLine({ top: firstCenter, height: Math.max(lastCenter - firstCenter, 0) })
+    }
+
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ['start center', 'end center'],
   })
 
   return (
-    <div className='scroll-mt-28 px-4 md:px-10' id='experience'>
+    <div className='scroll-mt-28 px-4 md:px-10 pb-16 md:pb-24' id='experience'>
       <h1 className='text-4xl md:text-6xl font-bold text-center mb-10'>Experience</h1>
 
-      <div ref={timelineRef} className='md:mx-15 relative flex flex-col gap-8 md:pl-10'>
-        <div className='hidden md:block absolute left-2 top-2 bottom-2 w-px bg-border' />
+      <div ref={timelineRef} className='md:mx-15 relative flex flex-col gap-8'>
+        <div
+          className='hidden md:block absolute left-6 w-0.5 -translate-x-1/2 bg-border rounded-full'
+          style={{ top: line.top, height: line.height }}
+        />
         <motion.div
-          className='hidden md:block absolute left-2 top-2 w-px bg-blue-400 origin-top'
-          style={{ scaleY: scrollYProgress, height: 'calc(100% - 1rem)' }}
+          className='hidden md:block absolute left-6 w-0.5 -translate-x-1/2 bg-blue-400 rounded-full origin-top'
+          style={{ top: line.top, height: line.height, scaleY: scrollYProgress }}
         />
 
-        {experience.map((entry) => (
-          <ExperienceCard key={entry.role + entry.company} entry={entry} />
+        {experience.map((entry, idx) => (
+          <ExperienceCard
+            key={entry.role + entry.company}
+            entry={entry}
+            dotRef={idx === 0 ? firstDotRef : idx === experience.length - 1 ? lastDotRef : undefined}
+          />
         ))}
       </div>
     </div>
