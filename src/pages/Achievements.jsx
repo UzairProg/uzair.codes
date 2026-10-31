@@ -19,7 +19,7 @@ const Achievements = () => {
                 "Project HAWK Awarded by the Vice President of India",
                 "Smart India Hackathon (SIH) 2025 Finalist.",
                 "Multiple 1st & 2nd Prizes in Competitive Tech Hackathons",
-                "Turning Ideas into Winning, Real-World Solutions",
+                "Building for real clients alongside college",
               ],
               autoStart: true,
               loop: true,
@@ -46,7 +46,7 @@ const Achievements = () => {
 
       <div className="min-h-lvh flex flex-col justify-center items-center md:w-2/3">
         {achievements.map(
-          ({ title, description, date, link, source, color }, idx) => {
+          ({ title, description, date, link, source, prize }, idx) => {
             return (
               <Card
                 key={idx}
@@ -56,7 +56,7 @@ const Achievements = () => {
                 date={date}
                 link={link}
                 source={source}
-                color={color}
+                prize={prize}
               />
             );
           },

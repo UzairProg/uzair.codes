@@ -5,7 +5,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery.jsx";
 
 
 
-const Card = ({ title, description, date, source, i, link }) => {
+const Card = ({ title, description, date, source, i, link, prize }) => {
     const isDesktop = useMediaQuery("(min-width: 768px)")
     // console.log(source)
   const container = useRef(null);
@@ -33,7 +33,14 @@ const Card = ({ title, description, date, source, i, link }) => {
         {/* half and half.. title and desc on left */}
         <div className="">
           <h3 className="text-2xl font-semibold text-white/80">{title}</h3>
-          <p className="text-sm text-white/50 mt-2">{date}</p>
+          <div className="flex items-center gap-2 mt-2">
+            <p className="text-sm text-white/50">{date}</p>
+            {prize && (
+              <span className="text-xs text-blue-300 bg-blue-500/15 border border-blue-500/30 rounded-full px-2 py-0.5">
+                {prize}
+              </span>
+            )}
+          </div>
           <p className="text-white/70 mt-3 text-left md:text-justify">{description}</p>
           {isDesktop && <a href={link} target="_blank" className="flex group justify-center border w-2/3 mt-6 border-border  items-center bg-black/40 gap-2 p-2 rounded-full  transition-all duration-300">
             <Eye className=" w-6 h-6 text-muted group-hover:text-blue-500/60 transition-all duration-300" />

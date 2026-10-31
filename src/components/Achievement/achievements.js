@@ -1,15 +1,15 @@
 // TODO(uzair): public/Images/Achievements/jec.jfif and muj.jfif exist but aren't referenced by any
-// achievement below — confirm what they're for (a missing entry?) before adding or deleting them.
+// achievement below — give the result + date for JEC and MUJ so they can be added.
+// Ordered by impact: the Vice President of India award leads, Technolegion (where it all started) closes.
 export const achievements = [
   {
-    title: "Technolegion",
-    // TODO(uzair): prize says "Finalist" but the description says "1st Prize" — confirm which is correct
-    prize: "Finalist",
+    title: "Ideathon 2.0, Mumbai",
+    prize: "3rd Place",
     description:
-      "My journey started here. Secured 1st Prize in my first ever hackathon. This win holds a special place as the beginning of everything.",
-    date: "11 November 2024",
-    source: "/Images/Achievements/first.webp",
-    link: "https://www.linkedin.com/posts/uzair-md_teampravartak-techlegion2024-achievement-activity-7261970182288429057-_EPl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
+      "Secured 3rd Prize at Ideathon 2.0, Mumbai, for proposing and building an innovative technical solution. The project was recognized and awarded by the Vice President of India, Shri C. P. Radhakrishnan, highlighting its national-level impact and originality.",
+    date: "2025",
+    source: "/Images/Achievements/ideation2.webp",
+    link: "https://www.linkedin.com/posts/uzair-md_ideation2-teampravartak-projecthawk-activity-7320841163987456000-Z_sI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
   {
     title: "Smart India Hackathon 2025 (SIH)",
@@ -21,13 +21,13 @@ export const achievements = [
     link: "https://www.linkedin.com/posts/uzair-md_sih2025-smartindiahackathon-hackathon-activity-7396506194242064385-rLBi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
   {
-    title: "Ideathon 2.0, Mumbai",
-    prize: "3rd Place",
+    title: "CIH 2.0, Nagpur",
+    prize: "1st Place",
     description:
-      "Secured 3rd Prize at Ideathon 2.0, Mumbai, for proposing and building an innovative technical solution. The project was recognized and awarded by the Vice President of India, Shri C. P. Radhakrishnan, highlighting its national-level impact and originality.",
+      "Won 1st Prize at CIH 2.0, Nagpur, by developing a high-impact technical solution under competitive constraints, demonstrating strong problem-solving, system design, and execution skills.",
     date: "2025",
-    source: "/Images/Achievements/ideation2.webp",
-    link: "https://www.linkedin.com/posts/uzair-md_ideation2-teampravartak-projecthawk-activity-7320841163987456000-Z_sI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
+    source: "/Images/Achievements/cih.webp",
+    link: "https://www.linkedin.com/posts/uzair-md_hackathonjourney-teampravartak-cih2025-activity-7344234498013773826-GLif?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
   {
     title: "IDEA Hackathon, Mumbai",
@@ -57,12 +57,13 @@ export const achievements = [
     link: "https://www.linkedin.com/posts/uzair-md_teampravartak-innovation-wiings2025-activity-7300457390104084482-CLC9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
   {
-    title: "CIH 2.0, Nagpur",
-    prize: "1st Place",
+    title: "Technolegion: where it started",
+    // TODO(uzair): prize says "Finalist" but the description says "1st Prize" — confirm which is correct
+    prize: "Finalist",
     description:
-      "Won 1st Prize at CIH 2.0, Nagpur, by developing a high-impact technical solution under competitive constraints, demonstrating strong problem-solving, system design, and execution skills.",
-    date: "2025",
-    source: "/Images/Achievements/cih.webp",
-    link: "https://www.linkedin.com/posts/uzair-md_hackathonjourney-teampravartak-cih2025-activity-7344234498013773826-GLif?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
+      "My journey started here. Secured 1st Prize in my first ever hackathon. This win holds a special place as the beginning of everything.",
+    date: "11 November 2024",
+    source: "/Images/Achievements/first.webp",
+    link: "https://www.linkedin.com/posts/uzair-md_teampravartak-techlegion2024-achievement-activity-7261970182288429057-_EPl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
 ];
