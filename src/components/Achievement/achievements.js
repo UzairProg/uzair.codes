@@ -43,8 +43,7 @@ export const achievements = [
     description:
       "Won 1st Prize at HackTheGap 2026, Chhatrapati Sambhajinagar.",
     date: "2026",
-    // TODO(uzair): HackTheGap 2026 photo — text-only card until it's added
-    source: null,
+    source: "/Images/Achievements/hackthegap.webp",
     link: null,
   },
   {

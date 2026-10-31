@@ -49,7 +49,7 @@ const Card = ({ title, description, date, source, i, link, prize, linkLabel = "V
         </div>
 
         {/* right part- image*/}
-        {source && (
+        {source && link && (
           <a
             href={link} target="_blank"
             ref={container}
@@ -62,6 +62,19 @@ const Card = ({ title, description, date, source, i, link, prize, linkLabel = "V
               style={{ filter: isDesktop ? grayscale : "none" }}
             />
           </a>
+        )}
+        {source && !link && (
+          <div
+            ref={container}
+            className="overflow-hidden rounded-2xl md:pl-10 flex items-center "
+          >
+            <motion.img
+              src={source}
+              loading="lazy"
+              className=" rounded-xl will-change-[filter]"
+              style={{ filter: isDesktop ? grayscale : "none" }}
+            />
+          </div>
         )}
       </div>
     </div>
