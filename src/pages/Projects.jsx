@@ -52,22 +52,22 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className=' scroll-mt-5 px-10' id='projects'>
+    <div className=' scroll-mt-5 px-4 md:px-10' id='projects'>
         <h1 className='text-4xl md:text-6xl font-bold text-center mb-10'>Projects</h1>
         {/* cards for projects */}
-        <div className='grid md:grid-cols-3 md:grid-rows-2 md:mx-15 max-h-min gap-15'>
+        <div className='grid md:grid-cols-3 md:mx-15 max-h-min gap-6 md:gap-15'>
             {
-                projects.map(({title, description, techStack, live=null, github, image="/Images/Projects/Github.png", highlight},idx) =>{
+                projects.map(({title, description, techStack, live=null, github, image="/Images/Projects/Github.png", highlight}) =>{
                     return(
-                        <div className='bg-surface relative group flex flex-col justify-between p-6 pb-0 rounded-2xl gap-4 hover:bg-blue-500/5 border-2 border-border transition-all duration-500 hover:-translate-y-0.5 hover:border-white/30 hover:shadow-lg'>
+                        <div key={title} className='bg-surface relative group flex flex-col justify-between p-6 pb-0 rounded-2xl gap-4 hover:bg-blue-500/5 border-2 border-border transition-all duration-500 hover:-translate-y-0.5 hover:border-white/30 hover:shadow-lg'>
                             <div className='flex gap-3 items-center'>
-                                <h2 className='text-3xl'>{title}</h2>
-                                
+                                <h2 className='text-3xl pr-12'>{title}</h2>
+
                             </div>
                             <div className='flex flex-wrap gap-2 justify-items-center -mt-2 -mb-3'>
-                                    {highlight.map((val, idx) =>{
+                                    {highlight.map((val) =>{
                                         return(
-                                            <div className='rounded-full text-white/80 bg-border max-h-min px-3 py-1'>
+                                            <div key={val} className='rounded-full text-white/80 bg-border max-h-min px-3 py-1'>
                                                 {val}
                                             </div>
                                         )
