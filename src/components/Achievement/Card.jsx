@@ -5,7 +5,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery.jsx";
 
 
 
-const Card = ({ title, description, date, source, i, link, prize }) => {
+const Card = ({ title, description, date, source, i, link, prize, linkLabel = "View Post" }) => {
     const isDesktop = useMediaQuery("(min-width: 768px)")
     // console.log(source)
   const container = useRef(null);
@@ -42,27 +42,27 @@ const Card = ({ title, description, date, source, i, link, prize }) => {
             )}
           </div>
           <p className="text-white/70 mt-3 text-left md:text-justify">{description}</p>
-          {isDesktop && <a href={link} target="_blank" className="flex group justify-center border w-2/3 mt-6 border-border  items-center bg-black/40 gap-2 p-2 rounded-full  transition-all duration-300">
+          {link && (isDesktop || !source) && <a href={link} target="_blank" className="flex group justify-center border w-2/3 mt-6 border-border  items-center bg-black/40 gap-2 p-2 rounded-full  transition-all duration-300">
             <Eye className=" w-6 h-6 text-muted group-hover:text-blue-500/60 transition-all duration-300" />
-            <p className="text-sm text-muted group-hover:text-white/60 transition-colors duration-300">View Post</p>
+            <p className="text-sm text-muted group-hover:text-white/60 transition-colors duration-300">{linkLabel}</p>
           </a>}
         </div>
 
         {/* right part- image*/}
-        <a
-          href={link} target="_blank"
-          ref={container}
-          className="overflow-hidden group rounded-2xl md:pl-10 cursor-pointer flex items-center "
-        >
-          <motion.img
-            src={source}
-            loading="lazy"
-            className=" rounded-xl will-change-[filter]"
-            style={{ filter: isDesktop ? grayscale : "none" }}
-          />
-          
-          
-        </a>
+        {source && (
+          <a
+            href={link} target="_blank"
+            ref={container}
+            className="overflow-hidden group rounded-2xl md:pl-10 cursor-pointer flex items-center "
+          >
+            <motion.img
+              src={source}
+              loading="lazy"
+              className=" rounded-xl will-change-[filter]"
+              style={{ filter: isDesktop ? grayscale : "none" }}
+            />
+          </a>
+        )}
       </div>
     </div>
   );

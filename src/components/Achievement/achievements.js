@@ -1,5 +1,3 @@
-// TODO(uzair): public/Images/Achievements/jec.jfif and muj.jfif exist but aren't referenced by any
-// achievement below — give the result + date for JEC and MUJ so they can be added.
 // Ordered by impact: the Vice President of India award leads, Technolegion (where it all started) closes.
 export const achievements = [
   {
@@ -21,6 +19,16 @@ export const achievements = [
     link: "https://www.linkedin.com/posts/uzair-md_sih2025-smartindiahackathon-hackathon-activity-7396506194242064385-rLBi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
   {
+    title: "Google Solution Challenge 2026",
+    prize: "Top 106",
+    description:
+      "Built Allocare with Team Triversal, an AI platform that helps NGOs turn scattered field reports into prioritised relief actions. Placed in the top 106 teams.",
+    date: "2026",
+    source: "/Images/Achievements/gsc.webp",
+    link: "https://certificate.hack2skill.com/verify/2026H2S07SCBWAI-TH00273",
+    linkLabel: "Verify certificate",
+  },
+  {
     title: "CIH 2.0, Nagpur",
     prize: "1st Place",
     description:
@@ -28,6 +36,16 @@ export const achievements = [
     date: "2025",
     source: "/Images/Achievements/cih.webp",
     link: "https://www.linkedin.com/posts/uzair-md_hackathonjourney-teampravartak-cih2025-activity-7344234498013773826-GLif?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
+  },
+  {
+    title: "HackTheGap 2026, Chhatrapati Sambhajinagar",
+    prize: "1st Prize",
+    description:
+      "Won 1st Prize at HackTheGap 2026, Chhatrapati Sambhajinagar.",
+    date: "2026",
+    // TODO(uzair): HackTheGap 2026 photo — text-only card until it's added
+    source: null,
+    link: null,
   },
   {
     title: "IDEA Hackathon, Mumbai",
@@ -65,4 +83,10 @@ export const achievements = [
     source: "/Images/Achievements/first.webp",
     link: "https://www.linkedin.com/posts/uzair-md_teampravartak-techlegion2024-achievement-activity-7261970182288429057-_EPl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEylOzwB7F0zkeQX5DoaweqtTJxWYXfWlns",
   },
+];
+
+// Small recognitions shown as a chip row, no images or dates.
+export const moreRecognitions = [
+  "Best Team Award · JEC",
+  "Best Team Award · MUJ",
 ];
