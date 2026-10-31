@@ -18,7 +18,7 @@ const Layout = ({children}) => {
       {isLoading && <Loader onFinish={() => setIsLoading(false)} />}
     </AnimatePresence>
       {!isLoading && <>
-          <main className=''>
+          <main className='pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0'>
             {children}
           </main>
           <Navbar />
