@@ -1,16 +1,31 @@
-# React + Vite
+# uzair.codes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uzair Mohammad's personal portfolio — a single-page site built with React, Vite, and Tailwind CSS, covering experience, projects, hackathon achievements, tech stack, and a contact form.
 
-Currently, two official plugins are available:
+## Running locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm ci
+npm run dev
+```
 
-## React Compiler
+Then open `http://localhost:5173`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Other scripts:
 
-## Expanding the ESLint configuration
+```bash
+npm run build    # production build to dist/
+npm run lint     # ESLint
+npm run preview  # preview the production build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Environment variables
+
+The contact form uses Supabase. Create a `.env.local` (never committed) with:
+
+```
+VITE_SUPABASE_URL=your-supabase-project-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+For local work without real credentials, any placeholder values will let the app boot — the contact form just won't actually submit.
