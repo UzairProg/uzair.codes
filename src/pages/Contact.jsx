@@ -32,7 +32,7 @@ const Contact = () => {
         <Typewriter
           options={{
             strings: [
-              "Connect with me.",
+              "Hiring? Let's talk.",
               "Say Hi!",
               "await response();",
               "Start a conversation",
@@ -45,6 +45,10 @@ const Contact = () => {
           }}
         />
       </div>
+
+      <p className="text-muted text-sm text-center">
+        Fastest reply: email or LinkedIn DM. I usually reply within a day.
+      </p>
 
       <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-3 w-full md:w-1/2">
         {/* copy email */}
