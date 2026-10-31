@@ -1,19 +1,24 @@
 import {
     SiReact,
-    SiRedux,
+    SiTypescript,
+    SiRadixui,
+    SiReactrouter,
     SiTailwindcss,
     SiHtml5,
     SiCss,
     SiJavascript,
     SiGsap,
     SiFramer,
+    SiFlutter,
     SiNodedotjs,
     SiExpress,
     SiSocketdotio,
     SiPython,
     SiFastapi,
+    SiFlask,
     SiPostman,
     SiJsonwebtokens,
+    SiCplusplus,
     SiMongodb,
     SiMongoose,
     SiFirebase,
@@ -26,18 +31,20 @@ import {
     SiHuggingface,
     SiPandas,
     SiGithubactions,
+    SiLangchain,
+    SiLanggraph,
     SiGit,
     SiGithub,
     SiSelenium,
     SiDocker,
+    SiGooglecloud,
+    SiLinux,
     SiVercel,
     SiRender
 } from '@icons-pack/react-simple-icons'
-// Zustand, Grok, NLP pipelines, and web scraping have no accurate brand logo in this
-// icon set — real logos (Google Tag Manager, Grocy, Dynatrace, WebMoney) stood in for
-// them before and read as wrong-brand mistakes to anyone who recognizes those marks.
-// Neutral lucide icons replace them instead of borrowing someone else's identity.
-import { Bot, Box, Braces, Globe } from 'lucide-react'
+// Recharts, Qdrant, and plain "SQL" have no accurate brand logo in this icon set —
+// neutral lucide icons stand in rather than borrowing another product's logo.
+import { BarChart3, Database, Table, Box, Braces, Globe } from 'lucide-react'
 
 export const techStackFrontendData = [
      {
@@ -45,12 +52,24 @@ export const techStackFrontendData = [
         Icon: SiReact
      },
      {
-        title: "Redux Toolkit",
-        Icon: SiRedux
+        title: "TypeScript",
+        Icon: SiTypescript
      },
      {
         title: "Zustand",
         Icon: Box
+     },
+     {
+        title: "Radix UI",
+        Icon: SiRadixui
+     },
+     {
+        title: "React Router",
+        Icon: SiReactrouter
+     },
+     {
+        title: "Recharts",
+        Icon: BarChart3
      },
      {
         title: "Tailwind CSS",
@@ -75,6 +94,10 @@ export const techStackFrontendData = [
      {
         title: "Framer Motion",
         Icon: SiFramer
+     },
+     {
+        title: "Flutter",
+        Icon: SiFlutter
      }
 ]
 
@@ -100,12 +123,20 @@ export const techStackBackendData = [
         Icon: SiFastapi
      },
      {
+        title: "Flask",
+        Icon: SiFlask
+     },
+     {
         title: "REST APIs",
         Icon: SiPostman
      },
      {
         title: "JWT Authentication",
         Icon: SiJsonwebtokens
+     },
+     {
+        title: "C++",
+        Icon: SiCplusplus
      }
 ]
 
@@ -125,6 +156,14 @@ export const databaseData = [
      {
         title: "Supabase",
         Icon: SiSupabase
+     },
+     {
+        title: "Qdrant (Vector DB)",
+        Icon: Database
+     },
+     {
+        title: "SQL",
+        Icon: Table
      }
 ]
 
@@ -138,12 +177,16 @@ export const aiAndAutomationData = [
         Icon: SiGooglegemini
      },
      {
-        title: "Grok API",
-        Icon: Bot
-     },
-     {
         title: "Retrieval Augmented Generation",
         Icon: SiOpensearch
+     },
+     {
+        title: "LangChain",
+        Icon: SiLangchain
+     },
+     {
+        title: "LangGraph",
+        Icon: SiLanggraph
      },
      {
         title: "Prompt Engineering",
@@ -197,8 +240,12 @@ export const devToolsData = [
         Icon: SiDocker
      },
      {
-        title: "Firebase (Auth/Hosting)",
-        Icon: SiFirebase
+        title: "Google Cloud Platform",
+        Icon: SiGooglecloud
+     },
+     {
+        title: "Linux",
+        Icon: SiLinux
      }
 ]
 
