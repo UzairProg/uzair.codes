@@ -2,6 +2,15 @@
 
 Uzair Mohammad's personal portfolio, a single-page site built with React, Vite, and Tailwind CSS, covering experience, projects, 12+ hackathon wins, tech stack, and a contact form.
 
+## Sections
+
+- **Home**: intro, resume, and social links.
+- **Experience**: a scroll-synced timeline; each entry lights up as you read it.
+- **Projects**: led by DripCheck, a store's POS extended into a synced e-commerce storefront on one shared inventory, with stock holds and race-safe checkout, plus a grid of other selected and GitHub projects.
+- **Tech stack**: a pinned-scroll showcase of the tools used day to day.
+- **Achievements**: hackathon wins and awards.
+- **Contact**: a form backed by Supabase.
+
 ## Running locally
 
 ```bash
