@@ -25,14 +25,14 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="flex flex-col justify-center-safe mt-20 items-center h-screen gap-10 mx-auto pb-10 -scroll-mt-20"
+      className="flex flex-col justify-center-safe mt-20 items-center min-h-screen gap-10 mx-auto px-4 pb-10 -scroll-mt-20"
     >
       {/* typewritter some texts here.. will look cool */}
       <div className="text-3xl text-white/80 h-12">
         <Typewriter
           options={{
             strings: [
-              "Connect with me.",
+              "Hiring? Let's talk.",
               "Say Hi!",
               "await response();",
               "Start a conversation",
@@ -46,7 +46,11 @@ const Contact = () => {
         />
       </div>
 
-      <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-3  md:w-1/2">
+      <p className="text-muted text-sm text-center">
+        Fastest reply: email or LinkedIn DM. I usually reply within a day.
+      </p>
+
+      <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-3 w-full md:w-1/2">
         {/* copy email */}
         <div
           onClick={handleCopy}
@@ -92,7 +96,7 @@ const Contact = () => {
 
           {/* resume */}
           <a
-          href="https://drive.google.com/file/d/1gYr3vPG0nXEFob2Wa_oD84-QBKKrQUfD/view?usp=sharing" target="_blank"
+          href="/resume.pdf" target="_blank"
           className="bg-[#080808] group flex gap-2 px-4 py-3 rounded-xl justify-center items-center cursor-pointer select-none border-2 border-border hover:border-blue-500/30 transition-colors duration-300 "
         >
             
@@ -105,7 +109,7 @@ const Contact = () => {
       </div>
 
           {/* feedback section */}
-          <div className="md:w-1/2 flex justify-center">
+          <div className="w-full md:w-1/2 flex justify-center">
           <FeedbackCard  />
           </div>
     </div>

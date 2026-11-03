@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Card from "../components/Techstack/Card";
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { useMediaQuery } from "../hooks/useMediaQuery.jsx";
 import {
   techStackFrontendData,
   techStackBackendData,
@@ -11,7 +12,52 @@ import {
   deploymentData,
 } from "../data/techstack";
 
-const Techstack = () => {
+const MobileGroup = ({ heading, items }) => (
+  <div className="flex flex-col gap-3">
+    <h3 className="text-2xl">{heading}</h3>
+    <div className="grid grid-cols-2 gap-3">
+      {items.map((item, index) => (
+        <Card key={index} title={item.title} Icon={item.Icon} drag={false} />
+      ))}
+    </div>
+  </div>
+);
+
+const TechstackMobile = () => (
+  <div id="techstack" className="flex flex-col gap-10 px-4 py-10 scroll-mt-28">
+    <div className="flex flex-col gap-6">
+      <h4 className="text-4xl text-muted">01. Core Development</h4>
+      <MobileGroup heading="Frontend" items={techStackFrontendData} />
+      <MobileGroup heading="Backend" items={[...techStackBackendData, ...databaseData]} />
+    </div>
+
+    <div className="flex flex-col gap-6">
+      <h4 className="text-4xl text-muted">02. AI & Automation</h4>
+      <MobileGroup heading="Applied AI Stack" items={aiAndAutomationData} />
+      <p className="text-white/60 text-sm leading-relaxed">
+        I work on applied GenAI systems where AI is part of a larger backend
+        workflow. My focus is on building reliable pipelines with
+        validation, confidence checks, and safe integration rather than
+        standalone model demos.
+      </p>
+    </div>
+
+    <div className="flex flex-col gap-6">
+      <h4 className="text-4xl text-muted">03. Version Control & Deployment</h4>
+      <MobileGroup heading="Tools & Platforms" items={devToolsData} />
+      <MobileGroup heading="Deployment" items={deploymentData} />
+      <p className="text-white/60 text-sm leading-relaxed">
+        I follow clean development workflows with version control,
+        structured debugging, and documentation. Comfortable writing
+        async code, working on Linux, and tracing issues through logs.
+        I prioritize maintainability and clarity so systems are easy
+        to extend and debug.
+      </p>
+    </div>
+  </div>
+);
+
+const TechstackDesktop = () => {
   const container = useRef(null); // targetted container!! jiske basis pr scroll perform hoga
   const frontendConstraints = useRef(null); // drag constraint for frontend cards
   const backendConstraints = useRef(null); // drag constraint for backend cards
@@ -172,7 +218,7 @@ const Techstack = () => {
                         <Card title={item.title} Icon={item.Icon} />
                       </motion.div>
                     ))}
-                  <motion.p drag dragConstraints={deploymentConstraints} className="text-white/60 cursor-grab active:cursor-grabbing text-sm md:text-lg leading-relaxed w-2/3 mt-6">I follow clean development workflows with version control, structured debugging, and documentation. I prioritize maintainability and clarity so systems are easy to extend and debug.</motion.p>
+                  <motion.p drag dragConstraints={deploymentConstraints} className="text-white/60 cursor-grab active:cursor-grabbing text-sm md:text-lg leading-relaxed w-2/3 mt-6">I follow clean development workflows with version control, structured debugging, and documentation. Comfortable writing async code, working on Linux, and tracing issues through logs. I prioritize maintainability and clarity so systems are easy to extend and debug.</motion.p>
                   </div>
                 </div>
               </div>
@@ -182,6 +228,11 @@ const Techstack = () => {
       </div>
     </div>
   );
+};
+
+const Techstack = () => {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  return isDesktop ? <TechstackDesktop /> : <TechstackMobile />;
 };
 
 export default Techstack;

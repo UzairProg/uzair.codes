@@ -3,7 +3,7 @@ import Card from "../components/Achievement/Card";
 import Typewriter from "typewriter-effect";
 import { useMediaQuery } from "../hooks/useMediaQuery.jsx";
 import { Linkedin, Github } from "lucide-react";
-import {achievements} from "../components/Achievement/achievements.js";
+import {achievements, moreRecognitions} from "../components/Achievement/achievements.js";
 
 const Achievements = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -15,11 +15,11 @@ const Achievements = () => {
           <Typewriter
             options={{
               strings: [
-                "10+ Hackathon Wins 🏆 Across National & State Levels",
+                "12+ Hackathon Wins 🏆 Across National & State Levels",
                 "Project HAWK Awarded by the Vice President of India",
-                "Smart India Hackathon (SIH) 2025 Finalist.",
-                "Multiple 1st & 2nd Prizes in Competitive Tech Hackathons",
-                "Turning Ideas into Winning, Real-World Solutions",
+                "Google Solution Challenge 2026: Top 106",
+                "Smart India Hackathon (SIH) 2025 Finalist",
+                "Building for real clients alongside college",
               ],
               autoStart: true,
               loop: true,
@@ -46,7 +46,7 @@ const Achievements = () => {
 
       <div className="min-h-lvh flex flex-col justify-center items-center md:w-2/3">
         {achievements.map(
-          ({ title, description, date, link, source, color }, idx) => {
+          ({ title, description, date, link, source, prize, linkLabel }, idx) => {
             return (
               <Card
                 key={idx}
@@ -56,11 +56,20 @@ const Achievements = () => {
                 date={date}
                 link={link}
                 source={source}
-                color={color}
+                prize={prize}
+                linkLabel={linkLabel}
               />
             );
           },
         )}
+
+        <div className="flex flex-wrap gap-2 justify-center mt-6 mb-10 px-6">
+          {moreRecognitions.map((label) => (
+            <div key={label} className="rounded-full text-white/70 bg-border max-h-min px-3 py-1 text-sm">
+              {label}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

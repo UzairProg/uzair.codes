@@ -1,21 +1,28 @@
-import { 
-    SiReact, 
-    SiRedux, 
-    SiTailwindcss, 
-    SiHtml5, 
-    SiCss, 
-    SiJavascript, 
-    SiGsap, 
+import {
+    SiReact,
+    SiTypescript,
+    SiRadixui,
+    SiReactrouter,
+    SiTailwindcss,
+    SiHtml5,
+    SiCss,
+    SiJavascript,
+    SiGsap,
     SiFramer,
-    SiGoogletagmanager,
+    SiFlutter,
     SiNodedotjs,
     SiExpress,
+    SiSocketdotio,
     SiPython,
     SiFastapi,
+    SiFlask,
     SiPostman,
     SiJsonwebtokens,
+    SiCplusplus,
     SiMongodb,
+    SiMongoose,
     SiFirebase,
+    SiSupabase,
     SiOpenai,
     SiGooglegemini,
     SiOpensearch,
@@ -24,16 +31,20 @@ import {
     SiHuggingface,
     SiPandas,
     SiGithubactions,
-    SiDynatrace,
-    SiGrocy,
+    SiLangchain,
+    SiLanggraph,
     SiGit,
     SiGithub,
-   SiDocker,
-    SiWebmoney,
+    SiSelenium,
+    SiDocker,
+    SiGooglecloud,
     SiLinux,
     SiVercel,
     SiRender
 } from '@icons-pack/react-simple-icons'
+// Recharts, Qdrant, and plain "SQL" have no accurate brand logo in this icon set;
+// neutral lucide icons stand in rather than borrowing another product's logo.
+import { BarChart3, Database, Table, Box, Braces, Globe } from 'lucide-react'
 
 export const techStackFrontendData = [
      {
@@ -41,12 +52,24 @@ export const techStackFrontendData = [
         Icon: SiReact
      },
      {
-        title: "Redux Toolkit",
-        Icon: SiRedux
+        title: "TypeScript",
+        Icon: SiTypescript
      },
      {
         title: "Zustand",
-        Icon: SiGoogletagmanager
+        Icon: Box
+     },
+     {
+        title: "Radix UI",
+        Icon: SiRadixui
+     },
+     {
+        title: "React Router",
+        Icon: SiReactrouter
+     },
+     {
+        title: "Recharts",
+        Icon: BarChart3
      },
      {
         title: "Tailwind CSS",
@@ -71,6 +94,10 @@ export const techStackFrontendData = [
      {
         title: "Framer Motion",
         Icon: SiFramer
+     },
+     {
+        title: "Flutter",
+        Icon: SiFlutter
      }
 ]
 
@@ -84,6 +111,10 @@ export const techStackBackendData = [
         Icon: SiExpress
      },
      {
+        title: "Socket.IO",
+        Icon: SiSocketdotio
+     },
+     {
         title: "Python",
         Icon: SiPython
      },
@@ -92,12 +123,20 @@ export const techStackBackendData = [
         Icon: SiFastapi
      },
      {
+        title: "Flask",
+        Icon: SiFlask
+     },
+     {
         title: "REST APIs",
         Icon: SiPostman
      },
      {
         title: "JWT Authentication",
         Icon: SiJsonwebtokens
+     },
+     {
+        title: "C++",
+        Icon: SiCplusplus
      }
 ]
 
@@ -107,8 +146,24 @@ export const databaseData = [
         Icon: SiMongodb
      },
      {
+        title: "Mongoose",
+        Icon: SiMongoose
+     },
+     {
         title: "Firebase",
         Icon: SiFirebase
+     },
+     {
+        title: "Supabase",
+        Icon: SiSupabase
+     },
+     {
+        title: "Qdrant (Vector DB)",
+        Icon: Database
+     },
+     {
+        title: "SQL",
+        Icon: Table
      }
 ]
 
@@ -122,12 +177,16 @@ export const aiAndAutomationData = [
         Icon: SiGooglegemini
      },
      {
-        title: "Grok API",
-        Icon: SiGrocy
-     },
-     {
         title: "Retrieval Augmented Generation",
         Icon: SiOpensearch
+     },
+     {
+        title: "LangChain",
+        Icon: SiLangchain
+     },
+     {
+        title: "LangGraph",
+        Icon: SiLanggraph
      },
      {
         title: "Prompt Engineering",
@@ -139,7 +198,7 @@ export const aiAndAutomationData = [
      },
      {
         title: "NLP Pipelines",
-        Icon: SiDynatrace
+        Icon: Braces
      },
      {
         title: "Huggingface",
@@ -170,27 +229,23 @@ export const devToolsData = [
      },
      {
         title: "Web Scraping (BeautifulSoup)",
-        Icon: SiWebmoney
+        Icon: Globe
      },
      {
-        title: "Async Programming",
-        Icon: SiNodedotjs
-     },
-     {
-        title: "Debugging & Logging",
-        Icon: SiPython
-     },
-     {
-        title: "Linux Basics",
-        Icon: SiLinux
+        title: "Selenium",
+        Icon: SiSelenium
      },
      {
         title: "Docker",
         Icon: SiDocker
      },
      {
-        title: "Firebase (Auth/Hosting)",
-        Icon: SiFirebase
+        title: "Google Cloud Platform",
+        Icon: SiGooglecloud
+     },
+     {
+        title: "Linux",
+        Icon: SiLinux
      }
 ]
 

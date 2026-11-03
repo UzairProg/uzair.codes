@@ -5,7 +5,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery.jsx";
 
 
 
-const Card = ({ title, description, date, source, i, link }) => {
+const Card = ({ title, description, date, source, i, link, prize, linkLabel = "View Post" }) => {
     const isDesktop = useMediaQuery("(min-width: 768px)")
     // console.log(source)
   const container = useRef(null);
@@ -28,33 +28,54 @@ const Card = ({ title, description, date, source, i, link }) => {
       style={{ top: isDesktop ? `${-50 + 15 * i}px` : `${55 + 1 * i}px` }}
     >
       <div // bg-surface/20
-        className={` bg-linear-to-r from-surface/20 to-blue-500/20 mx-10 md:h-100 backdrop-blur-xl md:w-200 mt-10 rounded-3xl flex flex-col md:flex-row p-6 gap-2 border-border border-2 hover:border-white/25  transition-all duration-500`}
+        className={` bg-linear-to-r from-surface/20 to-blue-500/20 w-[calc(100%-5rem)] md:max-w-200 mx-auto md:h-100 backdrop-blur-xl mt-10 rounded-3xl flex flex-col md:flex-row p-6 gap-2 border-border border-2 hover:border-white/25  transition-all duration-500`}
       >
         {/* half and half.. title and desc on left */}
         <div className="">
           <h3 className="text-2xl font-semibold text-white/80">{title}</h3>
-          <p className="text-sm text-white/50 mt-2">{date}</p>
-          <p className="text-white/70 mt-3 text-justify">{description}</p>
-          {isDesktop && <a href={link} target="_blank" className="flex group justify-center border w-2/3 mt-6 border-border  items-center bg-black/40 gap-2 p-2 rounded-full  transition-all duration-300">
+          <div className="flex items-center gap-2 mt-2">
+            <p className="text-sm text-white/50">{date}</p>
+            {prize && (
+              <span className="text-xs text-blue-300 bg-blue-500/15 border border-blue-500/30 rounded-full px-2 py-0.5">
+                {prize}
+              </span>
+            )}
+          </div>
+          <p className="text-white/70 mt-3 text-left md:text-justify">{description}</p>
+          {link && (isDesktop || !source) && <a href={link} target="_blank" className="flex group justify-center border w-2/3 mt-6 border-border  items-center bg-black/40 gap-2 p-2 rounded-full  transition-all duration-300">
             <Eye className=" w-6 h-6 text-muted group-hover:text-blue-500/60 transition-all duration-300" />
-            <p className="text-sm text-muted group-hover:text-white/60 transition-colors duration-300">View Post</p>
+            <p className="text-sm text-muted group-hover:text-white/60 transition-colors duration-300">{linkLabel}</p>
           </a>}
         </div>
 
         {/* right part- image*/}
-        <a
-          href={link} target="_blank"
-          ref={container}
-          className="overflow-hidden group rounded-2xl md:pl-10 cursor-pointer flex items-center "
-        >
-          <motion.img
-            src={source}
-            className=" rounded-xl will-change-[filter]"
-            style={{ filter: isDesktop ? grayscale : "none" }}
-          />
-          
-          
-        </a>
+        {source && link && (
+          <a
+            href={link} target="_blank"
+            ref={container}
+            className="overflow-hidden group rounded-2xl md:pl-10 cursor-pointer flex items-center "
+          >
+            <motion.img
+              src={source}
+              loading="lazy"
+              className=" rounded-xl will-change-[filter]"
+              style={{ filter: isDesktop ? grayscale : "none" }}
+            />
+          </a>
+        )}
+        {source && !link && (
+          <div
+            ref={container}
+            className="overflow-hidden rounded-2xl md:pl-10 flex items-center "
+          >
+            <motion.img
+              src={source}
+              loading="lazy"
+              className=" rounded-xl will-change-[filter]"
+              style={{ filter: isDesktop ? grayscale : "none" }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

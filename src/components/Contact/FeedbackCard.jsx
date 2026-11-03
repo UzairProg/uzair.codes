@@ -31,6 +31,7 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="w-full bg-[#080808] border border-white/5 rounded-2xl p-6 shadow-2xl">
+      <p className="text-sm text-white/80 font-medium mb-4">Send a message</p>
       <form onSubmit={handleSubmit} className="space-y-6">
         
         {/* Row 1: Name & Email side by side */}
@@ -66,7 +67,7 @@ const handleSubmit = async (e) => {
           <textarea
             required
             value={formData.message}
-            placeholder="Help me optimize: If you were to refactor one thing in my design or my professional path, what would it be?"
+            placeholder="Role, team, or project you have in mind…"
             className="w-full bg-transparent border-b border-white/10 py-2 px-1 text-sm text-white outline-none focus:border-white/40 transition-colors resize-none h-20 placeholder:text-white/20"
             onChange={(e) => setFormData({...formData, message: e.target.value})}
           />
@@ -75,16 +76,16 @@ const handleSubmit = async (e) => {
         {/* Action Row */}
         <div className="flex flex-col gap-2 md:flex-row items-center justify-between pt-2">
           <div className="text-sm text-neutral-600 font-mono">
-            {status === "success" ? (<div> <p>"STATUS: DISPATCHED, Thank you for ur feedback!"</p> </div>) : "STATUS: READY"}
+            {status === "success" ? "Sent. I'll get back to you soon." : "STATUS: READY"}
           </div>
-          
+
           <button
             type="submit"
             disabled={status === "sending"}
             className="px-8 py-3 bg-white/60 text-black text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-neutral-200/90 transition-all active:scale-95 disabled:bg-neutral-700"
             style={{backgroundColor: status==="sending" ? "green" : ""}}
           >
-            {status === "sending" ? "Sending..." : "Send Feedback"}
+            {status === "sending" ? "Sending..." : "Send"}
           </button>
         </div>
       </form>

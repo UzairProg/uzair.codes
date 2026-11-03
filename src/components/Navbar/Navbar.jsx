@@ -1,10 +1,11 @@
-import { Compass, FolderKanban, Layers, Mail, Trophy } from "lucide-react";
+import { Briefcase, Compass, FolderKanban, Layers, Mail, Trophy } from "lucide-react";
 import React, {useEffect} from "react";
 import { easeInOut, motion } from "framer-motion";
 import useLenisScroll, { getLenis } from "../../hooks/useLenisScroll.js";
 
 const icons = {
   home: <Compass />,
+  experience: <Briefcase />,
   projects: <FolderKanban />,
   achievements: <Trophy />,
   techstack: <Layers />,
@@ -46,16 +47,18 @@ export default function Navbar() {
   useEffect(() => {
   const sections = [
     "home",
+    "experience",
     "projects",
     "achievements",
     "techstack",
     "contact",
   ]
+  const observed = new Set()
 
   const observer = new IntersectionObserver(
     (entries) => {
       if (manualClickRef.current) return; // Skip observer if manual click is active
-      
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id)
@@ -69,12 +72,31 @@ export default function Navbar() {
     }
   )
 
-  sections.forEach((id) => {
-    const el = document.getElementById(id)
-    if (el) observer.observe(el)
-  })
+  // Sections below the hero are React.lazy + Suspense, so they mount asynchronously
+  // after this effect runs. Keep watching the DOM until every section is observed.
+  const tryObserve = () => {
+    sections.forEach((id) => {
+      if (observed.has(id)) return
+      const el = document.getElementById(id)
+      if (el) {
+        observer.observe(el)
+        observed.add(id)
+      }
+    })
+  }
 
-  return () => observer.disconnect()
+  tryObserve()
+
+  const mutationObserver = new MutationObserver(() => {
+    if (observed.size < sections.length) tryObserve()
+    else mutationObserver.disconnect()
+  })
+  mutationObserver.observe(document.body, { childList: true, subtree: true })
+
+  return () => {
+    observer.disconnect()
+    mutationObserver.disconnect()
+  }
 }, [isMobile])
   return (
     <motion.div
