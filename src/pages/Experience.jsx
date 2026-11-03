@@ -1,6 +1,6 @@
-import React, { useLayoutEffect, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Earth } from 'lucide-react'
-import { motion, useInView, useScroll } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { experience } from '../data/experience'
 
 const statusChipClass = (status) => {
@@ -10,10 +10,7 @@ const statusChipClass = (status) => {
     : 'text-amber-300 bg-amber-500/15 border border-amber-500/30'
 }
 
-const ExperienceCard = ({ entry, dotRef }) => {
-  const cardRef = useRef(null)
-  const isActive = useInView(cardRef, { margin: '-45% 0px -45% 0px' })
-
+const ExperienceCard = forwardRef(({ entry, isActive, dotRef }, cardRef) => {
   return (
     <div ref={cardRef} className='relative flex gap-4 md:gap-6 items-start'>
       {/* dot column, fixed offset from the row's top so it lines up with the title */}
@@ -94,26 +91,39 @@ const ExperienceCard = ({ entry, dotRef }) => {
       </div>
     </div>
   )
-}
+})
 
 const Experience = () => {
   const timelineRef = useRef(null)
   const firstDotRef = useRef(null)
-  const lastDotRef = useRef(null)
+  const cardRefs = useRef([])
   const [line, setLine] = useState({ top: 0, height: 0 })
+  const [bounds, setBounds] = useState([])
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const rawProgress = useMotionValue(0)
+  const progress = useSpring(rawProgress, { stiffness: 120, damping: 26, mass: 0.5 })
 
   useLayoutEffect(() => {
     const measure = () => {
       const container = timelineRef.current
       const firstDot = firstDotRef.current
-      const lastDot = lastDotRef.current
-      if (!container || !firstDot || !lastDot) return
+      if (!container || !firstDot) return
 
-      const containerTop = container.getBoundingClientRect().top
-      const firstCenter = firstDot.getBoundingClientRect().top - containerTop + firstDot.offsetHeight / 2
-      const lastCenter = lastDot.getBoundingClientRect().top - containerTop + lastDot.offsetHeight / 2
+      const containerRect = container.getBoundingClientRect()
+      const firstCenter = firstDot.getBoundingClientRect().top - containerRect.top + firstDot.offsetHeight / 2
 
-      setLine({ top: firstCenter, height: Math.max(lastCenter - firstCenter, 0) })
+      // the track runs from the first dot down to the bottom of the last card,
+      // not just to the last dot, so it never looks like it stops short of the content
+      setLine({ top: firstCenter, height: Math.max(containerRect.height - firstCenter, 0) })
+
+      setBounds(
+        cardRefs.current.map((el) => {
+          if (!el) return { top: 0, bottom: 0 }
+          const rect = el.getBoundingClientRect()
+          return { top: rect.top - containerRect.top, bottom: rect.bottom - containerRect.top }
+        })
+      )
     }
 
     measure()
@@ -121,10 +131,40 @@ const Experience = () => {
     return () => window.removeEventListener('resize', measure)
   }, [])
 
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ['start center', 'end center'],
-  })
+  useEffect(() => {
+    if (!line.height || bounds.length === 0) return
+
+    let frame = null
+    const update = () => {
+      frame = null
+      const container = timelineRef.current
+      if (!container) return
+
+      const containerTop = container.getBoundingClientRect().top
+      const centerWithinContainer = window.innerHeight / 2 - containerTop
+
+      rawProgress.set(Math.min(Math.max((centerWithinContainer - line.top) / line.height, 0), 1))
+
+      // a card is "active" for the whole time the viewport's center sits inside it,
+      // so its dot stays lit for the full duration the card is being read
+      let idx = 0
+      for (let i = 0; i < bounds.length; i++) {
+        if (centerWithinContainer >= bounds[i].top) idx = i
+      }
+      setActiveIndex(idx)
+    }
+
+    const onScroll = () => {
+      if (frame === null) frame = requestAnimationFrame(update)
+    }
+
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame !== null) cancelAnimationFrame(frame)
+    }
+  }, [line, bounds, rawProgress])
 
   return (
     <div className='scroll-mt-28 px-4 md:px-10 pb-16 md:pb-24' id='experience'>
@@ -137,14 +177,16 @@ const Experience = () => {
         />
         <motion.div
           className='hidden md:block absolute left-6 w-0.5 -translate-x-1/2 bg-blue-400 rounded-full origin-top'
-          style={{ top: line.top, height: line.height, scaleY: scrollYProgress }}
+          style={{ top: line.top, height: line.height, scaleY: progress }}
         />
 
         {experience.map((entry, idx) => (
           <ExperienceCard
             key={entry.role + entry.company}
+            ref={(el) => (cardRefs.current[idx] = el)}
             entry={entry}
-            dotRef={idx === 0 ? firstDotRef : idx === experience.length - 1 ? lastDotRef : undefined}
+            isActive={idx === activeIndex}
+            dotRef={idx === 0 ? firstDotRef : undefined}
           />
         ))}
       </div>
